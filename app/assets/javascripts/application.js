@@ -6,4 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require lib/underscore.js
+//= require lib/backbone.js
+//= require app
+//= require_tree ./app
+//= require init
