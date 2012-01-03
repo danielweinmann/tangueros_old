@@ -19,21 +19,20 @@ jQuery(function () {
     });
 
     if ( ns && controllerName && controllerName !== "" ) {
-      var capitalizedAction = action.charAt(0).toUpperCase() + action.substr(1);
       if(_.isFunction(ns[controllerName][action])) {
-        ns[controllerName][action]();
-      }
-      else if(_.isFunction(ns[controllerName][capitalizedAction])) {
-        var view = window.view = new ns[controllerName][capitalizedAction]();
+        var view = window.view = new ns[controllerName][action]();
       }
     }
   }
 
+  function exec_filter(filterName){
+    if(App.Common && _.isFunction(App.Common[filterName])){
+      App.Common[filterName]();
+    }
+  }
 
-  exec( null, "Common", "init" );
-  exec( controllerClass, controllerName, "init" );
+  exec_filter('init');
   exec( controllerClass, controllerName, action );
-  exec( null, "Common", "finish" );
-
+  exec_filter('finish');
 });
 
