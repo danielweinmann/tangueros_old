@@ -14,9 +14,11 @@
   * Rspec installed and configured
   * Machinist installed and configured
   * Jasmine installed and configured
+  * Mailcatcher installed and configured (in development environment)
   * Miv controller already created
   * Underscore.js and Backbone.js installed and loaded by default
   * JS loader for Backbone views and a sample application layout to enable it
+  * render_404 method already coded in ApplicationController
   * Initial stylesheets structure in place (work in progress)
   
 
