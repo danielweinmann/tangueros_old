@@ -4,8 +4,9 @@
 
     git clone git@github.com:softa/bootstrap-31.git cool_name_of_my_new_project
 
-  Then you'll need to replace the Bootstrap application name for your app name.
-  And then just change the origin ref in .git/config and push it to your new repo.
+  Then you'll need to replace the Bootstrap application name for your app name.  
+  And then just change the origin ref in .git/config and push it to your new repo.  
+  You still need to rename the Bootstrap31 app name manually in all source files where it appears, we'll automated this soon.
   
 ## Features
 
