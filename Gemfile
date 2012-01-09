@@ -42,5 +42,5 @@ group :development, :test do
   gem "rspec-rails", "~> 2.6.0"
   gem "silent-postgres"
   gem "silent-postgres"
-  gem "jasmine", :git => "https://github.com/pivotal/jasmine-gem.git", :branch => "1.2.rc1"
+  gem "jasmine"
 end
