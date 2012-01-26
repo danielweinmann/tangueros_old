@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bootstrap31::Application.load_tasks
+TangoPoa::Application.load_tasks
