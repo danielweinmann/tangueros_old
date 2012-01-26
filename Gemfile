@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.0'
 gem "inherited_resources"
 
 # Database
@@ -16,8 +16,8 @@ gem "slim-rails"
 group :assets do
   gem "compass", "~> 0.12.alpha.2"
   gem "compass-960-plugin"
-  gem 'sass-rails',   '~> 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails',   '~> 3.2.0'
+  gem 'coffee-rails', '~> 3.2.0'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -31,7 +31,7 @@ end
 
 group :test do
   # Pretty printed test output
-  gem "rspec", "~> 2.6.0"
+  gem "rspec", "~> 2.8.0"
   gem "machinist", ">= 2.0.0.beta2"
   gem "database_cleaner", "~> 0.6.7"
   gem "ffaker", "~> 1.8.1"
@@ -39,7 +39,7 @@ group :test do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 2.6.0"
+  gem "rspec-rails", "~> 2.8.0"
   gem "silent-postgres"
   gem "silent-postgres"
   gem "jasmine"
