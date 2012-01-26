@@ -29,6 +29,10 @@ group :development do
 # gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
+group :production do
+  gem "thin"
+end
+
 group :test do
   # Pretty printed test output
   gem "rspec", "~> 2.8.0"
