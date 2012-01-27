@@ -24,13 +24,7 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem "thin"
   gem "mailcatcher"
-# gem 'ruby-debug19', :require => 'ruby-debug'
-end
-
-group :production do
-  gem "thin"
 end
 
 group :test do
@@ -45,6 +39,9 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 2.8.0"
   gem "silent-postgres"
-  gem "silent-postgres"
   gem "jasmine"
+end
+
+group :development, :production do
+  gem "thin"
 end

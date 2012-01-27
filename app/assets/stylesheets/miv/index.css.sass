@@ -1,0 +1,43 @@
+@import compass/css3
+@import compass/utilities
+@import 960/grid
+@import miv/colors
+@import url(http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700)
+
+body
+
+  font-family: 'Open Sans', sans-serif
+  font-size: 18px
+  
+  .container
+    +grid-container
+    +clearfix
+    padding: 20px 0
+    border: 1px solid $light_gray
+    background: $ice
+    +border-radius(12px)
+    margin-bottom: 24px
+    .content
+      +grid(12)
+  a
+    text-decoration: none
+    color: $pink
+    &:hover
+      text-decoration: underline
+
+  h1
+    color: $gray
+    font-family: 'Homenaje', sans-serif
+    font-size: 60px
+  h2,h3,h4,h5
+    color: $dark_gray
+    font-family: 'Open Sans', sans-serif
+    font-weight: 700
+  h2
+    font-size: 32px
+  h3
+    font-size: 24px
+  h4
+    font-size: 20px
+  h5
+    font-size: 18px

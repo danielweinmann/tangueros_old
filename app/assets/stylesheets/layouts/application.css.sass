@@ -1,0 +1,19 @@
+@import compass/reset
+@import compass/css3
+@import compass/utilities
+@import 960/grid
+@import miv/colors
+
+body
+  background: $light_ice
+  border-top: 15px solid $black
+  #header
+    height: 100px
+    +grid-container
+    +clearfix
+    #logo
+      +grid(2)
+    h1
+      +grid(10)
+      padding-top: 36px
+      text-align: right

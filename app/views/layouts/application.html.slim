@@ -7,4 +7,7 @@ html
     = javascript_include_tag "application" 
     = csrf_meta_tags 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
-    = yield 
+    #header
+      #logo= image_tag 'logo.png'
+      h1 Tango Porto Alegre
+    #content= yield
