@@ -5,6 +5,7 @@ html
       = @title || "Page title"
     = stylesheet_link_tag "application"
     link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet' type='text/css'
+    link rel="shortcut icon" href==image_path('logo.png')
     = javascript_include_tag "application" 
     = csrf_meta_tags 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
