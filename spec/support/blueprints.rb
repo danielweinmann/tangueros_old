@@ -1,9 +1,10 @@
 require 'machinist/active_record'
 
-# Add your blueprints here.
-#
-# e.g.
-#   Post.blueprint do
-#     title { "Post #{sn}" }
-#     body  { "Lorem ipsum..." }
-#   end
+EventType.blueprint do
+  name { "Type #{sn}" }
+end
+
+Event.blueprint do
+  facebook_id { "214925355266001" }
+  event_type { EventType.make! }
+end
