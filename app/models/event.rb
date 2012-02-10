@@ -5,6 +5,14 @@ class Event < ActiveRecord::Base
   
   before_create :get_facebook_data
   
+  scope :happening, where("start_time < current_timestamp AND end_time > current_timestamp").order("start_time DESC")
+  scope :upcoming, where("start_time >= current_timestamp").order(:start_time)
+  scope :past, where("end_time < current_timestamp").order(:end_time)
+  
+  def url
+    "http://www.facebook.com/events/#{facebook_id}/"
+  end
+  
   private
   
   def get_facebook_data

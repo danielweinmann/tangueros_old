@@ -1,0 +1,7 @@
+.event class=(["first", "second", "third"][event_counter % 3])
+    = link_to event.url, target: :_blank do
+      .picture= image_tag(event.picture)
+    .info
+      .name
+        h3= link_to truncate(event.name, :length => 38), event.url, target: :_blank
+      .type= event.event_type.name

@@ -1,3 +1,12 @@
 .container
   .content
-    |ABC
+    h2 Acontecendo por agora
+    = render @happening
+.container
+  .content
+    h2 Próximos eventos
+    = render @upcoming
+.container
+  .content
+    h2 Últimos eventos
+    = render @past

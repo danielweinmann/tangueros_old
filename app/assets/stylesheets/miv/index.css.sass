@@ -19,10 +19,10 @@ body
   a
     +transition(all, 0.3s)
     text-decoration: none
-    color: $pink
+    color: $dark_pink
     font-weight: 700
     &:hover
-      color: $dark_pink
+      color: $pink
   h1
     color: $gray
     font-family: 'Homenaje', sans-serif
@@ -39,3 +39,39 @@ body
     font-size: 20px
   h5
     font-size: 18px
+  .event
+    background: $light_gray
+    margin-top: 16px
+    +grid(4)
+    height: 185px
+    overflow: hidden
+    &.first
+      +alpha
+    &.third
+      +omega
+    .picture
+      float: left
+      margin-right: 8px
+      height: 185px
+      width: 114px
+      overflow: hidden
+      background-color: $dark_yellow
+      img
+        max-width: 114px
+        +opacity(0.5)
+    .info
+      height: 169px
+      width: 284px
+      display: block
+      padding: 8px
+      .name
+        h3
+          font-size: 14px
+    &:hover
+      background: $pink
+      .picture img
+        +opacity(0.9)
+      a
+        color: $light_ice
+        &:hover
+          color: $white
