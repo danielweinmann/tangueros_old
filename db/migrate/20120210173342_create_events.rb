@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
-      t.text :facebook_id, unique: true
+      t.text :url, unique: true
       t.text :name
       t.references :event_type
       t.timestamp :start_time

@@ -1,25 +1,28 @@
 - unless @happening.empty?
   .container
-    .content
+    .content.happening
       h2 Acontecendo agora
       = render @happening
 - unless @upcoming.empty?
   .container
-    .content
+    .content.upcoming
       h2 Próximos eventos
       = render @upcoming
 - unless @past.empty?
   .container
-    .content
+    .content.past
       h2 Últimos eventos
       = render @past
 .container
-  .content
+  .content.new
     h2 Tá sabendo de algum evento que não tá aqui?
     p Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!
-    a.button href="#new" Clique aqui para adicionar um evento
+    = simple_form_for @event do |form|
+      = form.input :url, as: :string, placeholder: "Cole aqui o link para o evento no Facebook...", label: 'Cole o link para o evento no Facebook'
+      = form.association :event_type, label: 'Tipo', include_blank: false
+      = form.button :submit, 'Adicionar evento'
 .container
-  .content
+  .content.group
     h2 Quer saber mais e conhecer outros tangueros?
     p Junte-se a todos os tangueros de Porto Alegre no nosso grupo no Facebook. Independente de tribos, escolas, grupos e afins, o que a gente quer é desenvolver a cultura tanguera e dançar mais e mais!
     a.button href="http://www.facebook.com/groups/105131459562829/" target="_blank" Faça parte do nosso grupo no Facebook

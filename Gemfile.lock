@@ -154,6 +154,9 @@ GEM
       rubyzip
     shoulda-matchers (1.0.0)
     silent-postgres (0.1.1)
+    simple_form (1.5.2)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -212,6 +215,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.1)
   shoulda-matchers (~> 1.0.0.beta3)
   silent-postgres
+  simple_form
   slim (~> 1.0.2)
   slim-rails
   thin

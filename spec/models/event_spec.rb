@@ -23,8 +23,8 @@ describe Event do
     end
     subject { Event.make! }
     its(:name) { should == "Event name" }
-    its(:start_time) { should == "2012-02-06T20:00:00" }
-    its(:end_time) { should == "2012-02-15T22:00:00" }
+    its(:start_time) { should == Time.parse("2012-02-06T20:00:00") }
+    its(:end_time) { should == Time.parse("2012-02-15T22:00:00") }
     its(:location) { should == "Event location" }
     its(:picture) { should == "http://picture.url" }
   end

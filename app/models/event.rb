@@ -1,7 +1,16 @@
+#coding: utf-8
+
+FB_REGEX = /\Ahttp:\/\/www.facebook.com\/events\/(\d+)\/{0,1}/
+
 class Event < ActiveRecord::Base
+  
+  extend ActiveSupport::Memoizable
+  
   belongs_to :event_type
-  validates_presence_of :facebook_id, :event_type
-  validates_uniqueness_of :facebook_id
+  validates_presence_of :url, :event_type
+  validates_uniqueness_of :url
+  validates_format_of :url, with: FB_REGEX, :message => "deve ser uma URL de evento do Facebook válida"
+  validate :must_have_facebook_data
   
   before_create :get_facebook_data
   
@@ -9,11 +18,23 @@ class Event < ActiveRecord::Base
   scope :upcoming, where("start_time >= current_timestamp").order(:start_time)
   scope :past, where("end_time < current_timestamp").order("end_time DESC")
   
-  def url
-    "http://www.facebook.com/events/#{facebook_id}/"
+  def facebook_id
+    self.url.match(FB_REGEX)[1]
   end
+  memoize :facebook_id
   
   private
+  
+  def must_have_facebook_data
+    raise unless self.url.present? and self.url.match(FB_REGEX)
+    data = JSON.parse(HTTParty.get("https://graph.facebook.com/#{self.facebook_id}").body)
+    raise unless data["name"]
+    raise unless data["start_time"]
+    raise unless data["end_time"]
+    raise unless data["location"]
+  rescue
+    errors.add(:url, "não é um evento aberto do Facebook")
+  end
   
   def get_facebook_data
     data = JSON.parse(HTTParty.get("https://graph.facebook.com/#{self.facebook_id}").body)

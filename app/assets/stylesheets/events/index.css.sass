@@ -1,0 +1,29 @@
+@import 960/grid
+
+body[data-action="Index"][data-controller-class="EventsController"][data-controller-name="Events"]
+  form
+    margin-top: 16px
+    +grid(12)
+    +alpha
+    +omega
+    div.string
+      +grid(6)
+      +alpha
+      input
+        +grid(6)
+        +alpha
+        +omega
+    div.select
+      +grid(3)
+      select
+        +grid(3)
+        +alpha
+        +omega
+    .button
+      +grid(3)
+      +omega
+  .group
+    .button
+      +grid(6)
+      +alpha
+      +grid-push(3)

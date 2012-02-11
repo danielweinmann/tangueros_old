@@ -11,4 +11,10 @@ html
     #header
       #logo= image_tag 'logo.png'
       h1 Tango Porto Alegre
-    #content= yield
+    #content
+      - for key, msg in flash
+        .flash class=key
+          .container
+            .content
+              == msg
+      = yield

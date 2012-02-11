@@ -5,6 +5,6 @@ EventType.blueprint do
 end
 
 Event.blueprint do
-  facebook_id { "214925355266001" }
+  url { "http://www.facebook.com/events/214925355266001/" }
   event_type { EventType.make! }
 end

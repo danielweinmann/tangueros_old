@@ -13,6 +13,7 @@ gem "slim-rails"
 
 # Application-specific
 gem "httparty"
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
