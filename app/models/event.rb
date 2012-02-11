@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   
   scope :happening, where("start_time < current_timestamp AND end_time > current_timestamp").order("start_time DESC")
   scope :upcoming, where("start_time >= current_timestamp").order(:start_time)
-  scope :past, where("end_time < current_timestamp").order(:end_time)
+  scope :past, where("end_time < current_timestamp").order("end_time DESC")
   
   def url
     "http://www.facebook.com/events/#{facebook_id}/"
