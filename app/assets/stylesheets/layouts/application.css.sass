@@ -13,10 +13,14 @@ body
     width: 962px
     +clearfix
     #logo
-      +grid(2)
-    h1
-      +grid(5)
-      padding-top: 36px
+      +grid(7)
+      .image
+        float: left
+        width: 100px
+      .text
+        float: right
+        width: 430px
+        padding-top: 36px
     #social
       background-color: $light_gray
       border: 1px solid $light_gray

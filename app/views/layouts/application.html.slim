@@ -29,8 +29,10 @@ html
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     #header
-      #logo= image_tag 'logo.png'
-      h1 Tango Porto Alegre
+      #logo
+        .image= image_tag 'logo.png'
+        .text
+          h1 Tango Porto Alegre
       #social
         .fb-like data-href="http://tangoportoalegre.com.br" data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
