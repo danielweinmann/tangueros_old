@@ -19,9 +19,20 @@ html
     = javascript_include_tag "application" 
     = csrf_meta_tags 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
+    div id="fb-root"
+    javascript:
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=165877740121884";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     #header
       #logo= image_tag 'logo.png'
       h1 Tango Porto Alegre
+      #social
+        .fb-like data-href="http://tangoportoalegre.com.br" data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
       - for key, msg in flash
         .flash class=key
