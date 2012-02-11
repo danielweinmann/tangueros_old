@@ -1,12 +1,19 @@
+- unless @happening.empty?
+  .container
+    .content
+      h2 Acontecendo agora
+      = render @happening
+- unless @upcoming.empty?
+  .container
+    .content
+      h2 Próximos eventos
+      = render @upcoming
+- unless @past.empty?
+  .container
+    .content
+      h2 Últimos eventos
+      = render @past
 .container
   .content
-    h2 Acontecendo por agora
-    = render @happening
-.container
-  .content
-    h2 Próximos eventos
-    = render @upcoming
-.container
-  .content
-    h2 Últimos eventos
-    = render @past
+    h2 Como funciona o Tango Porto Alegre?
+    p Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango pode crescer cada dia mais!

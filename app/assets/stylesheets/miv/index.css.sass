@@ -39,6 +39,8 @@ body
     font-size: 20px
   h5
     font-size: 18px
+  p
+    margin-top: 16px
   .event
     background: $light_gray
     margin-top: 16px
@@ -60,13 +62,42 @@ body
         max-width: 114px
         +opacity(0.5)
     .info
-      height: 169px
-      width: 284px
-      display: block
       padding: 8px
       .name
+        height: 45px
+        overflow: hidden
         h3
           font-size: 14px
+      .time
+        height: 32px
+        margin-top: 8px
+        +clearfix
+        .start
+          font-size: 14px
+          margin-bottom: 4px
+          font-weight: 700
+        .end
+          font-size: 10px
+        img
+          float: left
+          margin-right: 4px
+          vertical-align: middle
+          height: 30px
+      .location
+        height: 22px
+        font-size: 10px
+        margin-top: 12px
+        +clearfix
+        img
+          float: left
+          margin-right: 4px
+          vertical-align: middle
+          height: 20px
+      .type
+        img
+          float: right
+          +opacity(0.2)
+          margin-right: -20px
     &:hover
       background: $pink
       .picture img

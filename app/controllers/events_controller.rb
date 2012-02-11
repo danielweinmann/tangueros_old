@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def index
     @happening = Event.happening.all
     @upcoming = Event.upcoming.all
-    @past = Event.past.all
+    @past = Event.past.limit(6).all
   end
   
 end
