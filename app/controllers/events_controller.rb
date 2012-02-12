@@ -24,4 +24,10 @@ class EventsController < ApplicationController
     end
   end
   
+  def sitemap
+    @happening = Event.happening.all
+    @upcoming = Event.upcoming.all
+    @past = Event.past.all
+  end
+  
 end
