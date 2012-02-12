@@ -1,9 +1,9 @@
 .event_box class=(["first", "second", "third"][event_counter % 3])
-    = link_to event.url, target: :_blank do
+    = link_to event_path(event), target: :_blank do
       .picture= image_tag(event.picture)
     .info
       .name
-        h3= link_to truncate(event.name, :length => 54), event.url, target: :_blank
+        h3= link_to truncate(event.name, :length => 54), event_path(event), target: :_blank
       .time
         = image_tag 'calendar.png'
         .start= l event.start_time, format: :medium

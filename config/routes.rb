@@ -6,6 +6,6 @@ TangoPoa::Application.routes.draw do
   root to: "events#index"
   match '/sitemap' => "events#sitemap", :as => :sitemap
   
-  resources :events, only: [:index, :create]
+  resources :events, only: [:index, :show, :create]
   
 end

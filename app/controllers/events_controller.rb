@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   
   inherit_resources
-  actions :index, :create
+  actions :index, :show, :create
   
   def index
     @happening = Event.happening.all
@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @past = Event.past.limit(6).all
     @event_types = EventType.all
     @event = Event.new event_type: EventType.first
+  end
+  
+  def show
+    show! { return redirect_to @event.url }
   end
   
   def create

@@ -9,7 +9,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   @happening.each do |event|
     xml.url do
-      xml.loc event.url
+      xml.loc event_url(event)
       xml.priority 0.8
       xml.changefreq "daily"
       xml.lastmod event.updated_at.to_date
@@ -18,7 +18,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   @upcoming.each do |event|
     xml.url do
-      xml.loc event.url
+      xml.loc event_url(event)
       xml.priority 0.6
       xml.changefreq "daily"
       xml.lastmod event.updated_at.to_date
@@ -27,7 +27,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   @past.each do |event|
     xml.url do
-      xml.loc event.url
+      xml.loc event_url(event)
       xml.priority 0.4
       xml.changefreq "daily"
       xml.lastmod event.updated_at.to_date
