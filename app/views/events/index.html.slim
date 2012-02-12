@@ -17,7 +17,7 @@
   .content.new
     h2 Tá sabendo de algum evento que não tá aqui?
     = simple_form_for @event do |form|
-      = form.input :url, as: :string, placeholder: "Cole aqui o link para o evento no Facebook...", label: 'Cole o link para o evento no Facebook'
+      = form.input :url, as: :string, placeholder: "http://www.facebook.com/events/1234567890123/", label: 'Cole o link para o evento no Facebook'
       = form.association :event_type, label: 'Tipo', include_blank: false
       = form.button :submit, 'Adicionar evento'
 .container
