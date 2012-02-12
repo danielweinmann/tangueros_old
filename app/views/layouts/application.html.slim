@@ -6,7 +6,7 @@ html
     meta name="author" content="Daniel Weinmann"
     meta name="description" content="Fique por dentro do que acontece no tango de Porto Alegre! Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
     meta property="og:title" content="Fique por dentro do que acontece no tango de Porto Alegre!"
-    meta property="og:type" content="cause"
+    meta property="og:type" content="website"
     meta property="og:url" content=(root_url)
     meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}"
     meta property="og:site_name" content="Tango Porto Alegre"
@@ -37,7 +37,7 @@ html
           .text
             h1 title="Tango Porto Alegre" Tango Porto Alegre
       #social
-        .fb-like data-href="http://tangoportoalegre.com.br" data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+        .fb-like data-href="http://tangoportoalegre.com.br/" data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
       - for key, msg in flash
         .flash class=key
