@@ -1,6 +1,6 @@
 #coding: utf-8
 
-FB_REGEX = /\Ahttp:\/\/www.facebook.com\/events\/(\d+)\/{0,1}/
+FB_REGEX = /\Ahttps{0,1}:\/\/www.facebook.com\/events\/(\d+)\/{0,1}/
 
 class Event < ActiveRecord::Base
   
