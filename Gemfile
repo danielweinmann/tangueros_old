@@ -46,6 +46,6 @@ group :development, :test do
   gem "jasmine"
 end
 
-group :development, :production do
+group :production do
   gem 'unicorn'
 end
