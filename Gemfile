@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.12'
 gem "inherited_resources"
 
 # Database
@@ -47,5 +47,5 @@ group :development, :test do
 end
 
 group :development, :production do
-  gem "thin"
+  gem 'unicorn'
 end
