@@ -18,6 +18,29 @@ gem "slim-rails"
 gem "httparty"
 gem 'simple_form'
 
+group :production do
+
+  # Gem used to handle image uploading
+  gem 'fog', '>= 1.3.1'
+
+  # Workers, forks and all that jazz
+  gem 'unicorn'
+
+  # Enabling Gzip on Heroku
+  # If you don't use Heroku, please comment the line below.
+  gem 'heroku-deflater', '>= 0.4.1'
+
+
+  # Monitoring with the new new relic
+  gem 'newrelic_rpm'
+
+  # Using dalli and memcachier have not presented significative performance gains
+  # Probably this is due to our pattern of cache usage
+  # + the lack of concurrent procs in our deploy
+  #gem 'memcachier'
+  #gem 'dalli'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -47,8 +70,4 @@ group :development, :test do
   gem "rspec-rails", "~> 2.8.0"
   gem "silent-postgres"
   gem "jasmine"
-end
-
-group :production do
-  gem 'unicorn'
 end
