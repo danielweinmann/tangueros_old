@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 gem "inherited_resources"
 
 # Database
-gem 'pg'
+gem 'pg', ">= 0.16.0"
 gem "foreigner"
 
 # Views
