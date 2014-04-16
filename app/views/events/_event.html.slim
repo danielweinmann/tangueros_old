@@ -7,9 +7,10 @@
       .time
         = image_tag 'calendar.png'
         .start= l event.start_time, format: :medium
-        .end
-          |  Até 
-          = l event.end_time, format: :medium
+        - if event.end_time.present?
+          .end
+            |  Até 
+            = l event.end_time, format: :medium
       .location
         = image_tag 'map_marker.png'
         = event.location
