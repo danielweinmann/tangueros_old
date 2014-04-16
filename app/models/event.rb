@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
   
   scope :happening, where("start_time < current_timestamp AND end_time > current_timestamp AND end_time IS NOT NULL").order("start_time DESC")
   scope :upcoming, where("start_time >= current_timestamp").order(:start_time)
-  scope :past, where("(end_time IS NOT NULL AND end_time < current_timestamp) OR (end_time IS NULL AND start_time < current_timestamp)").order("end_time DESC")
+  scope :past, where("(end_time IS NOT NULL AND end_time < current_timestamp) OR (end_time IS NULL AND start_time < current_timestamp)").order("CASE WHEN end_time >= current_timestamp THEN start_time END ASC, CASE WHEN end_time < current_timestamp THEN start_time END DESC")
   
   def facebook_id
     self.url.match(FB_REGEX)[1]
