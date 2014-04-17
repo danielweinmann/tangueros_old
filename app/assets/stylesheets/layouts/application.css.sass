@@ -38,3 +38,33 @@ body
       height: 68px
       +border-top-left-radius(12px)
       +border-top-right-radius(12px)
+  #content
+    .new
+      form
+        margin-top: 16px
+        +grid(12)
+        +alpha
+        +omega
+        div.string
+          +grid(6)
+          +alpha
+          input
+            +grid(6)
+            +alpha
+            +omega
+        div.select
+          +grid(3)
+          select
+            +grid(3)
+            +alpha
+            +omega
+        .button
+          +grid(3)
+          +omega
+    .group
+      .button
+        margin-top: 16px
+        +grid(6)
+        +alpha
+        +grid-push(3)
+          

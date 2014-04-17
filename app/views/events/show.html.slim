@@ -1,0 +1,19 @@
+.container
+  .content
+    = link_to @event.picture, target: :_blank do
+      .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
+    h2= @event.name
+    .description== @event.description.gsub("\n", "<br/>")
+    .info
+      .time
+        = image_tag 'calendar.png'
+        .start= l @event.start_time, format: :medium
+        - if @event.end_time.present?
+          .end
+            |  Até 
+            = l @event.end_time, format: :medium
+      .location
+        = image_tag 'map_marker.png'
+        = @event.location
+      .type= image_tag "event_types/#{@event.event_type.name.parameterize}.png", alt: @event.event_type.name, title: @event.event_type.name
+    .url= link_to "Visualizar evento no Facebook", @event.url, target: :_blank

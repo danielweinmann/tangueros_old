@@ -55,3 +55,14 @@ html
             .content
               == msg
       = yield
+      .container
+        .content.new
+          h2 Tá sabendo de algum evento que não tá aqui?
+          = simple_form_for Event.new do |form|
+            = form.input :url, as: :string, placeholder: "http://www.facebook.com/events/1234567890/", label: 'Cole o link para o evento no Facebook'
+            = form.association :event_type, label: 'Tipo', include_blank: false
+            = form.button :submit, 'Adicionar evento'
+      .container
+        .content.group
+          h2 Quer saber mais e conhecer outros tangueros?
+          a.button href="http://www.facebook.com/groups/105131459562829/" target="_blank" Faça parte do nosso grupo no Facebook

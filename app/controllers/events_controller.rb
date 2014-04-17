@@ -8,11 +8,10 @@ class EventsController < ApplicationController
     @upcoming = Event.upcoming.all
     @past = Event.past.limit(6).all
     @event_types = EventType.all
-    @event = Event.new event_type: EventType.first
   end
   
   def show
-    show! { return redirect_to @event.url }
+    show!
   end
   
   def create
