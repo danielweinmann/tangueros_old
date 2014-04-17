@@ -1,6 +1,7 @@
 .event_box class=(["first", "second", "third"][event_counter % 3])
     = link_to event_path(event) do
-      .picture= image_tag(event.picture)
+      .picture
+        = image_tag(event.picture) if event.picture
     .info
       .name
         h3= link_to truncate(event.name, :length => 54), event_path(event)

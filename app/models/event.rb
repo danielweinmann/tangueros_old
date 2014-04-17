@@ -37,17 +37,19 @@ class Event < ActiveRecord::Base
     return nil unless data["location"]
     unless data["cover"]
       cover_data = JSON.parse(HTTParty.get("https://graph.facebook.com/fql?q=#{URI::escape('SELECT pic_cover FROM event WHERE eid=')}#{self.facebook_id}&access_token=#{URI::escape(access_token)}").body)
-      cover_id = cover_data["data"][0]["pic_cover"]["cover_id"]
-      cover = JSON.parse(HTTParty.get("https://graph.facebook.com/#{cover_id}?access_token=#{URI::escape(access_token)}").body)
-      width = 0
-      cover_index = 0
-      cover["images"].each_with_index do |image, index|
-        if image["width"] > width
-          width = image["width"]
-          cover_index = index
+      cover_id = cover_data["data"][0]["pic_cover"]["cover_id"] if cover_data["data"][0]["pic_cover"]
+      if cover_id
+        cover = JSON.parse(HTTParty.get("https://graph.facebook.com/#{cover_id}?access_token=#{URI::escape(access_token)}").body)
+        width = 0
+        cover_index = 0
+        cover["images"].each_with_index do |image, index|
+          if image["width"] > width
+            width = image["width"]
+            cover_index = index
+          end
         end
+        data["cover"] = cover["images"][cover_index]
       end
-      data["cover"] = cover["images"][cover_index]
     end
     data
   end

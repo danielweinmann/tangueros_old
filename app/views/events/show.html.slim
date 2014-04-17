@@ -5,8 +5,9 @@
   script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'
 .container
   .content
-    = link_to @event.picture, target: :_blank do
-      .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
+    - if @event.picture
+      = link_to @event.picture, target: :_blank do
+        .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
     h2= @event.name
     .type
       = image_tag "event_types/#{@event.event_type.name.parameterize}.png", alt: @event.event_type.name, title: @event.event_type.name
