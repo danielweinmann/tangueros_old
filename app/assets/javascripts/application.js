@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require lib/underscore.js
 //= require lib/backbone.js
+//= require gmaps/google
 //= require app
 //= require_tree ./app
 //= require init

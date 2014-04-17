@@ -17,6 +17,7 @@ gem "slim-rails"
 # Application-specific
 gem "httparty"
 gem 'simple_form'
+gem 'gmaps4rails'
 
 group :production do
 

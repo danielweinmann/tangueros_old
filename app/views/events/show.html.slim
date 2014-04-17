@@ -1,10 +1,24 @@
+- content_for :title do
+  = @event.name
+- content_for :external_js do
+  script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
+  script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'
 .container
   .content
     = link_to @event.picture, target: :_blank do
       .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
     h2= @event.name
+    .type
+      = image_tag "event_types/#{@event.event_type.name.parameterize}.png", alt: @event.event_type.name, title: @event.event_type.name
+      = @event.event_type.name
     .description== @event.description.gsub("\n", "<br/>")
     .info
+      - if @event.latitude && @event.longitude
+        #map data-latitude=@event.latitude data-longitude=@event.longitude
+      .where
+        = image_tag 'map_marker.png'
+        .location= @event.location
+        .address= @event.address
       .time
         = image_tag 'calendar.png'
         .start= l @event.start_time, format: :medium
@@ -12,8 +26,4 @@
           .end
             |  Até 
             = l @event.end_time, format: :medium
-      .location
-        = image_tag 'map_marker.png'
-        = @event.location
-      .type= image_tag "event_types/#{@event.event_type.name.parameterize}.png", alt: @event.event_type.name, title: @event.event_type.name
-    .url= link_to "Visualizar evento no Facebook", @event.url, target: :_blank
+      .url= link_to "Visualizar evento no Facebook", @event.url, target: :_blank

@@ -15,7 +15,48 @@ body[data-action="Show"][data-controller-class="EventsController"][data-controll
     overflow: hidden
     img
       width: 960px
+  h2
+    +grid(10)
+    +alpha
+    margin-bottom: 20px
+  .type
+    +grid(2)
+    +omega
+    text-align: right
+    img
+      width: 32px
+      vertical-align: middle
+      margin-right: 8px
+      margin-top: -8px
+    font-size: 24px
   .description
-    margin-top: 20px
-  .url
-    margin-top: 20px
+    +grid(6)
+    +alpha
+    line-height: 24px
+    width: 449px
+    padding-right: 10px
+    border-right: 1px solid $gray
+    min-height: 372px
+  .info
+    +grid(6)
+    +omega
+    #map
+      +grid(6)
+      +alpha
+      +omega
+      height: 210px
+      margin-bottom: 20px
+    .where
+      margin-bottom: 32px
+      img
+        height: 40px
+        float: left
+        margin-left: 6px
+        margin-right: 12px
+    .time
+      margin-bottom: 20px
+      +clearfix
+      img
+        width: 32px
+        float: left
+        margin-right: 8px

@@ -12,7 +12,9 @@ html
     meta property="og:site_name" content="Tango Porto Alegre"
     meta property="og:description" content="Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
     meta property="fb:admins" content="567237711"
-    title Fique por dentro do que acontece no tango de Porto Alegre!
+    title= "#{"#{yield :title} · " if content_for?(:title)}Tango Porto Alegre"
+    - if content_for? :external_js
+      = yield :external_js
     = stylesheet_link_tag "application"
     link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet' type='text/css'
     link rel="shortcut icon" href==image_path('logo.png')
