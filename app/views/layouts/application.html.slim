@@ -47,7 +47,7 @@ html
           .text
             h1 title="Tango Porto Alegre" Tango Porto Alegre
       #social
-        .fb-like data-href="http://tangoportoalegre.com.br/" data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+        .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangoportoalegre.com.br/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
       - for key, msg in flash
         .flash class=key
