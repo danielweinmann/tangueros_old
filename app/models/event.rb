@@ -69,7 +69,7 @@ class Event < ActiveRecord::Base
   end
 
   def picture_margin
-    return unless self.picture_width && self.picture_height
+    return 0 unless self.picture_width && self.picture_height
     display_height = (960.0 / self.picture_width * self.picture_height).to_i
     ((display_height - 360) / 2.6 * -1).to_i
   end
