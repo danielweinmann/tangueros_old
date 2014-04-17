@@ -3,6 +3,21 @@
 - content_for :external_js do
   script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
   script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'
+- content_for :meta_tags do
+    meta name="description" content=@event.description
+    meta name="keywords" content="#{@event.name} #{@event.description} Tango Porto Alegre"
+    meta property="og:title" content=@event.name
+    meta property="og:type" content="event"
+    meta property="event:start_time" content=@event.start_time
+    meta property="event:end_time" content=@event.end_time
+    meta property="event:location:latitude" content=@event.latitude
+    meta property="event:location:longitude" content=@event.longitude
+    meta property="og:url" content=request.url
+    meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}")
+    meta property="og:site_name" content="Tango Porto Alegre"
+    meta property="fb:app_id" content=ENV['FACEBOOK_APP_ID']
+    meta property="og:description" content=@event.description
+    meta property="fb:admins" content="567237711"
 .container
   .content
     - if @event.picture
