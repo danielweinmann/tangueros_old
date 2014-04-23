@@ -31,16 +31,3 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
-
-group :test do
-  gem "rspec", "~> 2.8.0"
-  gem "machinist", ">= 2.0.0.beta2"
-  gem "database_cleaner", "~> 0.6.7"
-  gem "ffaker", "~> 1.8.1"
-  gem "shoulda-matchers", "~> 1.0.0.beta3"
-end
-
-group :development, :test do
-  gem "rspec-rails", "~> 2.8.0"
-  gem "silent-postgres"
-end
