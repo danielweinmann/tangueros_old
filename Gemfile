@@ -17,14 +17,12 @@ gem 'rails-perftest', '~>0.0.2'
 
 gem "inherited_resources"
 gem 'pg'
-gem "foreigner"
 gem "slim"
 gem "slim-rails"
 gem "httparty"
 gem 'gmaps4rails'
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails4_upgrade'
 gem "compass-rails"
 gem "compass-960-plugin"
 gem 'sass-rails'
