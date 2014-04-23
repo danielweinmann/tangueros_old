@@ -6,8 +6,7 @@ TangoPoa::Application.routes.draw do
     get "/miv", to: "miv#index"
   end
 
-  root to: "events#index"
-  match '/sitemap' => "events#sitemap", :as => :sitemap
+  get '/sitemap' => "events#sitemap", :as => :sitemap
   
   resources :events do
     get "sitemap", on: :collection
@@ -16,5 +15,7 @@ TangoPoa::Application.routes.draw do
   resources :users, except: [:show, :new, :create] do
     get 'events', on: :member
   end
+
+  root "events#index"
 
 end
