@@ -42,4 +42,5 @@
           .end
             |  Até 
             = l @event.end_time, format: :medium
-      .url= link_to "Visualizar evento no Facebook", @event.url, target: :_blank
+      p= link_to "Visualizar evento no Facebook", @event.url, target: :_blank
+      p= link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este evento? Confiamos em você, ok?' }

@@ -7,10 +7,10 @@ var App = window.App = {
       }
 
       // Create existing flashes
-      App.flashes = [];
-      $('.flash').each(function(){
-        App.flashes.push(new PLOTO.Flash({el: this}));
-      });
+      // App.flashes = [];
+      // $('.flash').each(function(){
+      //   App.flashes.push(new App.Flash({el: this}));
+      // });
     },
 
     finish: function(){
