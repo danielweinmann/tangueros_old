@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # For heroku
 ruby '1.9.3'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.17'
 gem "inherited_resources"
 
 # Database
