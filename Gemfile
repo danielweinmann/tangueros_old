@@ -1,67 +1,38 @@
 source 'http://rubygems.org'
 
-# For heroku
 ruby '1.9.3'
 
-gem 'rails', '3.2.17'
+gem 'rails', '~>4.0.0'
+
+# Gems extracted on Rails 4
+gem 'actionpack-action_caching', '~>1.0.0'
+gem 'actionpack-page_caching', '~>1.0.0'
+gem 'actionpack-xml_parser', '~>1.0.0'
+gem 'actionview-encoded_mail_to', '~>1.0.4'
+gem 'activerecord-session_store', '~>0.0.1'
+gem 'activeresource', '~>4.0.0.beta1'
+gem 'protected_attributes', '~>1.0.1'
+gem 'rails-observers', '~>0.1.1'
+gem 'rails-perftest', '~>0.0.2'
+
 gem "inherited_resources"
-
-# Database
-gem 'pg', ">= 0.16.0"
+gem 'pg'
 gem "foreigner"
-
-# Views
-gem "slim", "~> 1.0.2"
+gem "slim"
 gem "slim-rails"
-
-# Application-specific
 gem "httparty"
-gem 'simple_form'
 gem 'gmaps4rails'
 gem 'devise'
 gem 'devise-i18n'
-
-group :production do
-
-  # Gem used to handle image uploading
-  gem 'fog', '>= 1.3.1'
-
-  # Workers, forks and all that jazz
-  gem 'unicorn'
-
-  # Enabling Gzip on Heroku
-  # If you don't use Heroku, please comment the line below.
-  gem 'heroku-deflater', '>= 0.4.1'
-
-
-  # Monitoring with the new new relic
-  gem 'newrelic_rpm'
-
-  # Using dalli and memcachier have not presented significative performance gains
-  # Probably this is due to our pattern of cache usage
-  # + the lack of concurrent procs in our deploy
-  #gem 'memcachier'
-  #gem 'dalli'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem "compass-rails"
-  gem "compass-960-plugin"
-  gem 'sass-rails',   '~> 3.2.1'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'rails4_upgrade'
+gem "compass-rails"
+gem "compass-960-plugin"
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 gem 'jquery-rails'
 
-group :development do
-  gem "mailcatcher"
-end
-
 group :test do
-  # Pretty printed test output
   gem "rspec", "~> 2.8.0"
   gem "machinist", ">= 2.0.0.beta2"
   gem "database_cleaner", "~> 0.6.7"
@@ -72,5 +43,4 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 2.8.0"
   gem "silent-postgres"
-  gem "jasmine"
 end
