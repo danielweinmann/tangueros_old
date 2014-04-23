@@ -49,6 +49,23 @@ html
       }(document, 'script', 'facebook-jssdk'));
     a href="http://github.com/danielweinmann/tangopoa" target="_blank"
       img style="position: absolute; top: 0; right: 0; border: 0; z-index: 500" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"
+    #pre_header_wrapper
+      #pre_header
+        - if current_user
+          #current_user.menu
+            a.open href="#"
+              = current_user.name + " "
+              span ▾
+            nav
+              = link_to "Meu cadastro", edit_user_registration_path
+              = link_to "Meus eventos", events_user_path(current_user)
+              hr
+              = link_to "Sair", destroy_user_session_path, method: :delete
+        - else
+          .sign_in
+            = link_to "Cadastre-se", new_user_registration_path
+            |  | 
+            = link_to "Login", new_user_session_path
     #header
       #logo
         = link_to :root do
@@ -58,11 +75,13 @@ html
       #social
         .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangoportoalegre.com.br/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
-      - for key, msg in flash
-        .flash class=key
-          .container
-            .content
-              == msg
+      #flash
+        - for key, msg in flash
+          - unless key == :timedout
+            .flash class=key
+              .container
+                .content
+                  == msg
       = yield
       .container
         .content.new

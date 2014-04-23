@@ -18,6 +18,8 @@ gem "slim-rails"
 gem "httparty"
 gem 'simple_form'
 gem 'gmaps4rails'
+gem 'devise'
+gem 'devise-i18n'
 
 group :production do
 

@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   extend ActiveSupport::Memoizable
   
   belongs_to :event_type
+  belongs_to :user
   validates_presence_of :url, :event_type
   validates_uniqueness_of :url
   validates_format_of :url, with: FB_REGEX, :message => "deve ser uma URL de evento do Facebook válida"

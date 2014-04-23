@@ -6,7 +6,23 @@
 
 body
   background: $light_ice
-  border-top: 15px solid $black
+  #pre_header_wrapper
+    background: $black
+  #pre_header
+    padding: 4px 0
+    +grid-container
+    height: 12px
+    .sign_in, #current_user
+      +grid(3)
+      float: right
+      font-size: 12px
+      color: $white
+      text-align: right
+    .sign_in
+      a
+        color: white
+        &:hover
+          text-decoration: underline
   #header
     height: 100px
     +grid-container

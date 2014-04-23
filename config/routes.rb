@@ -1,4 +1,7 @@
 TangoPoa::Application.routes.draw do
+
+  devise_for :users
+
   if Rails.env.development?
     get "/miv", to: "miv#index"
   end
@@ -9,5 +12,9 @@ TangoPoa::Application.routes.draw do
   resources :events do
     get "sitemap", on: :collection
   end
-  
+
+  resources :users, except: [:show, :new, :create] do
+    get 'events', on: :member
+  end
+
 end

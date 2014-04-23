@@ -8,3 +8,7 @@ Event.blueprint do
   url { "http://www.facebook.com/events/214925355266001/" }
   event_type { EventType.make! }
 end
+
+User.blueprint do
+  # Attributes here
+end

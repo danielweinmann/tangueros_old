@@ -17,14 +17,16 @@ body
     margin-bottom: 24px
     .content
       +grid(12)
+  #flash
+    display: none
   .flash
     text-align: center
-    &.failure
+    &.failure, &.error, &.alert
       .container
         border: 1px solid $dark_red
         background: $red
         color: $white
-    &.success
+    &.success, &.notice
       .container
         border: 1px solid $dark_yellow
         background: $yellow
@@ -50,6 +52,10 @@ body
     font-size: 20px
   h5
     font-size: 18px
+  hr
+    margin: 0
+    border: none
+    border-top: 1px dotted $gray
   p
     margin: 16px 0
   form
@@ -154,3 +160,27 @@ body
       +box-shadow(none)
     &:visited
       color: $white
+  .menu
+    position: relative
+    .open
+      text-decoration: none
+      color: $white
+      &:hover
+        text-decoration: underline
+    nav
+      z-index: 500
+      position: absolute
+      top: 16px
+      left: 0
+      min-width: 100%
+      display: none
+      background-color: $white
+      border: 1px solid $gray
+      a
+        text-decoration: none
+        display: block
+        padding: 4px
+        color: $gray
+        &:hover
+          background-color: $gray
+          color: $white
