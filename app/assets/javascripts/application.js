@@ -7,10 +7,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require lib/underscore.js
-//= require lib/backbone.js
+//= require underscore
 //= require gmaps/google
-//= require app
-//= require_tree ./app
-//= require init
+//= require_tree ./lib
+//= require_tree .
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks

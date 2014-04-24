@@ -18,7 +18,10 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'underscore-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'fb-channel-file'
+gem 'nprogress-rails'
 
 gem 'spring', group: :development
