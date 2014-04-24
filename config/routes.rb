@@ -1,4 +1,4 @@
-TangoPoa::Application.routes.draw do
+Tangueros::Application.routes.draw do
 
   devise_for :users
 

@@ -5,6 +5,7 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require lib/underscore.js
 //= require lib/backbone.js
@@ -12,3 +13,4 @@
 //= require app
 //= require_tree ./app
 //= require init
+//= require turbolinks

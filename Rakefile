@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TangoPoa::Application.load_tasks
+Tangueros::Application.load_tasks

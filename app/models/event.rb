@@ -4,8 +4,6 @@ FB_REGEX = /\Ahttps{0,1}:\/\/www.facebook.com\/events\/(\d+)\/{0,1}/
 
 class Event < ActiveRecord::Base
   
-  extend ActiveSupport::Memoizable
-  
   belongs_to :event_type
   belongs_to :user
   validates_presence_of :url, :event_type
@@ -15,9 +13,17 @@ class Event < ActiveRecord::Base
   
   before_create :set_facebook_data
   
-  scope :happening, where("start_time < current_timestamp AND end_time > current_timestamp AND end_time IS NOT NULL").order("start_time DESC")
-  scope :upcoming, where("start_time >= current_timestamp").order(:start_time)
-  scope :past, where("(end_time IS NOT NULL AND end_time < current_timestamp) OR (end_time IS NULL AND start_time < current_timestamp)").order("start_time DESC")
+  def self.happening
+    where("start_time < current_timestamp AND end_time > current_timestamp AND end_time IS NOT NULL").order("start_time DESC")
+  end
+
+  def self.upcoming
+    where("start_time >= current_timestamp").order(:start_time)
+  end
+
+  def self.past
+    where("(end_time IS NOT NULL AND end_time < current_timestamp) OR (end_time IS NULL AND start_time < current_timestamp)").order("start_time DESC")
+  end
   
   def to_param
     "#{self.id}-#{self.name.parameterize}"
@@ -26,7 +32,6 @@ class Event < ActiveRecord::Base
   def facebook_id
     self.url.match(FB_REGEX)[1]
   end
-  memoize :facebook_id
 
   def facebook_data
     return nil unless self.url.present? and self.url.match(FB_REGEX)
@@ -54,7 +59,6 @@ class Event < ActiveRecord::Base
     end
     data
   end
-  memoize :facebook_data
   
   def update_facebook_data!
     self.name = self.facebook_data["name"]

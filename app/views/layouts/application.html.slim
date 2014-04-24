@@ -8,7 +8,7 @@ html
       / Page specific meta tags
       = yield :meta_tags
     - else
-      / Meta tags for the whole site
+      / Default meta tags for the whole site
       meta name="description" content=yield(:title)
       meta name="keywords" content="#{yield :title} Tango Porto Alegre"
       meta property="og:title" content=yield(:title)
@@ -25,19 +25,21 @@ html
     = stylesheet_link_tag "application"
     link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet' type='text/css'
     link rel="shortcut icon" href==image_path('logo.png')
-    = javascript_include_tag "application" 
-    = csrf_meta_tags 
     javascript:
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-43352814-2']);
-      _gaq.push(['_trackPageview']);
 
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+    = javascript_include_tag "application" 
+    = csrf_meta_tags 
   body data-controller-class=controller.class.name data-controller-name=controller.controller_name.camelize data-action=controller.action_name.camelize
+    - if Rails.env.production?
+      javascript:
+        _gaq.push(['_trackPageview']);
     div id="fb-root"
     javascript:
       (function(d, s, id) {
@@ -47,8 +49,6 @@ html
         js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=165877740121884";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    a href="http://github.com/danielweinmann/tangopoa" target="_blank"
-      img style="position: absolute; top: 0; right: 0; border: 0; z-index: 500" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"
     #pre_header_wrapper
       #pre_header
         - if current_user
@@ -69,9 +69,10 @@ html
     #header
       #logo
         = link_to :root do
-          .image= image_tag 'logo.png', alt: "Tango Porto Alegre", title: "Tango Porto Alegre"
+          .image= image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
           .text
-            h1 title="Tango Porto Alegre" Tango Porto Alegre
+            h1 title="Tangueros" Tangueros
+            h2 title="Porto Alegre" Porto Alegre
       #social
         .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangoportoalegre.com.br/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
@@ -86,10 +87,7 @@ html
       .container
         .content.new
           h2 Tá sabendo de algum evento que não tá aqui?
-          = simple_form_for Event.new do |form|
-            = form.input :url, as: :string, placeholder: "http://www.facebook.com/events/1234567890/", label: 'Cole o link para o evento no Facebook'
-            = form.association :event_type, label: 'Tipo', include_blank: false
-            = form.button :submit, 'Adicionar evento'
+          = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
       .container
         .content.group
           h2 Quer saber mais e conhecer outros tangueros?
