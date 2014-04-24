@@ -1,12 +1,11 @@
 body[data-action="show"][data-controller="events"][data-namespace="null"]
   #content
     .picture
-      background: $dark_gray
       text-align: center
-      margin-top: -20px
+      margin-top: -1 * $margin_size
       margin-left: -10px
-      margin-bottom: 20px
-      margin-right: 20px
+      margin-bottom: $margin_size
+      margin-right: $margin_size
       width: 960px
       height: 360px
       overflow: hidden
@@ -15,7 +14,7 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
     h2
       +grid(10)
       +alpha
-      margin-bottom: 20px
+      margin-bottom: $margin_size
     .type
       +grid(2)
       +omega
@@ -23,17 +22,17 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
       img
         width: 32px
         vertical-align: middle
-        margin-right: 8px
-        margin-top: -8px
-      font-size: 24px
+        margin-right: $small_margin_size
+        margin-top: -1 * $small_margin_size
+      font-size: $medium_size
     .description
       +grid(6)
       +alpha
-      line-height: 24px
+      line-height: $medium_size
       width: 449px
-      padding-right: 10px
-      border-right: 1px solid $gray
-      min-height: 372px
+      padding-right: $small_margin_size
+      border-right: 1px solid $border_color
+      min-height: 424px
     .info
       +grid(6)
       +omega
@@ -42,18 +41,18 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
         +alpha
         +omega
         height: 210px
-        margin-bottom: 20px
+        margin-bottom: $margin_size
       .where
-        margin-bottom: 32px
+        margin-bottom: $margin_size
         img
           height: 40px
           float: left
-          margin-left: 6px
-          margin-right: 12px
+          margin-left: $small_margin_size - 2
+          margin-right: $small_margin_size + 4
       .time
-        margin-bottom: 20px
+        margin-bottom: $margin_size
         +clearfix
         img
           width: 32px
           float: left
-          margin-right: 8px
+          margin-right: $small_margin_size

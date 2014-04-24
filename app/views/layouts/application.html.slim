@@ -39,6 +39,10 @@ html
       javascript:
         ga('send', 'pageview');
     div#fb-root
+    #flash
+      - for key, msg in flash
+        - unless key == :timedout
+          div class="#{key}" = msg
     #pre_header_wrapper
       #pre_header
         - if current_user
@@ -66,13 +70,6 @@ html
       #social
         .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
-      #flash
-        - for key, msg in flash
-          - unless key == :timedout
-            .flash class=key
-              .container
-                .content
-                  == msg
       = yield
       .container
         .content.new

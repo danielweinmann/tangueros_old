@@ -1,0 +1,103 @@
+.container
+  +grid-container
+  +clearfix
+  padding: $margin_size 0
+  border: 1px solid $border_color
+  background: $container_color
+  +border-top-left-radius($radius_size)
+  +border-bottom-right-radius($radius_size)
+  margin-bottom: $margin_size
+  .content
+    +grid(12)
+.events
+  .event
+    background: $box_color
+    margin-top: $margin_size
+    +grid(4)
+    height: 185px
+    overflow: hidden
+    &.first
+      +alpha
+    &.third
+      +omega
+    .picture
+      float: left
+      margin-right: $small_margin_size
+      height: 185px
+      width: 114px
+      overflow: hidden
+      background-color: $picture_color
+      img
+        max-width: 114px
+        +opacity(0.5)
+    .info
+      padding: $small_margin_size
+      .name
+        height: 45px
+        overflow: hidden
+        h3
+          font-size: $small_size
+          line-height: 110%
+          & a
+            text-decoration: none
+      .time
+        height: 32px
+        margin-top: $small_margin_size
+        +clearfix
+        .start
+          font-size: $small_size
+          line-height: $small_size
+          margin-bottom: $tiny_margin_size
+          font-weight: $bold_weight
+        .end
+          font-size: $tiny_size
+          line-height: $tiny_size
+        img
+          float: left
+          margin-right: $tiny_margin_size
+          vertical-align: middle
+          height: 30px
+      .location
+        height: 22px
+        font-size: $tiny_size
+        margin-top: $small_margin_size
+        +clearfix
+        img
+          float: left
+          margin-right: $tiny_margin_size
+          vertical-align: middle
+          height: 20px
+      .type
+        img
+          float: right
+          +opacity(0.2)
+          margin-right: -1 * $margin_size
+    &:hover
+      background: $box_hover_color
+      .picture img
+        +opacity(0.9)
+      a
+        color: $box_hover_link_color
+        &:hover
+          color: $box_hover_link_hover_color
+.button
+  display: block
+  text-decoration: none
+  text-align: center
+  border: none
+  font-size: $medium_size
+  font-weight: $bold_weight
+  line-height: $big_size
+  padding: $small_margin_size
+  cursor: pointer
+  background: $button_color
+  color: $button_text_color
+  &:hover
+    background: $button_hover_color
+    color: $button_hover_text_color
+  &:active
+    padding: ($small_margin_size + 1) ($small_margin_size - 1) ($small_margin_size - 1) ($small_margin_size + 1)
+  &:visited
+    color: $button_text_color
+    &:hover
+      color: $button_hover_text_color

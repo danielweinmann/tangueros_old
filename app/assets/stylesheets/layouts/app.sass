@@ -1,61 +1,76 @@
-body
-  background: $light_ice
-  #pre_header_wrapper
-    background: $black
-  #pre_header
-    padding: 4px 0
-    +grid-container
-    height: 12px
-    .sign_in, #current_user
-      +grid(3)
-      float: right
-      font-size: 12px
-      color: $white
-      text-align: right
-    .sign_in
-      a
-        color: white
-        &:hover
-          text-decoration: underline
-  #header
-    height: 100px
-    +grid-container
-    width: 962px
-    +clearfix
-    overflow: visible
-    #logo
-      +grid(7)
-      .image
-        float: left
+#flash
+  display: none
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 400
+  div
+    font-size: $big_size
+    line-height: $huge_size
+    color: $flash_text_color
+    padding: 8px
+    text-align: center
+  .notice, .success
+    background-color: $flash_success_color
+  .failure, .error, .alert
+    background-color: $flash_failure_color
+#pre_header_wrapper
+  background: $pre_header_color
+#pre_header
+  padding: $tiny_margin_size 0
+  +grid-container
+  height: $margin_size
+  .sign_in, #current_user
+    +grid(3)
+    float: right
+    font-size: $small_size
+    font-weight: $bold_weight
+    color: $pre_header_text_color
+    text-align: right
+  .sign_in
+    a
+      text-decoration: none
+      color: $pre_header_text_color
+      &:hover
+        text-decoration: underline
+#header
+  height: 100px
+  +grid-container
+  width: 962px
+  +clearfix
+  overflow: visible
+  #logo
+    +grid(7)
+    .image
+      float: left
+      width: 100px
+      height: 100px
+      overflow: hidden
+      img
         width: 100px
-        height: 100px
-        overflow: hidden
-        img
-          width: 100px
-      .text
-        font-weight: 500
-        float: right
-        width: 430px
-        padding-top: 36px
-        h1, h2
-          display: inline-block
-        h2
-          margin-left: 10px
-    #social
-      background-color: $light_gray
-      border: 1px solid $light_gray
-      +grid(5)
-      +omega
-      margin-top: 10px
-      padding: 10px
-      width: 370px
-      height: 68px
-      +border-top-left-radius(12px)
-      +border-top-right-radius(12px)
-  #content
-    .new
-      .button
-        margin-top: 16px
-        +grid(6)
-        +alpha
-        +grid-push(3)
+    .text
+      float: right
+      width: 430px
+      padding-top: 56px
+      h1, h2
+        display: inline-block
+      h2
+        margin-left: $small_margin_size
+  #social
+    background-color: $border_color
+    border: 1px solid $border_color
+    +grid(5)
+    +omega
+    margin-top: $small_margin_size
+    padding: $small_margin_size
+    width: 374px
+    height: 74px
+    +border-top-left-radius($radius_size)
+    +border-top-right-radius($radius_size)
+#content
+  .new
+    .button
+      margin-top: $margin_size
+      +grid(6)
+      +alpha
+      +grid-push(3)

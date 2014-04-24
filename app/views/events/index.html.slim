@@ -15,14 +15,14 @@
   .container
     .content.happening
       h2 Acontecendo agora
-      = render @happening
+      ul.events= render @happening
 - unless @upcoming.empty?
   .container
     .content.upcoming
       h2 Próximos eventos
-      = render @upcoming
+      ul.events= render @upcoming
 - unless @past.empty?
   .container
     .content.past
       h2 Últimos eventos
-      = render @past
+      ul.events= render @past
