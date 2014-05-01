@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bourbon (3.2.1)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -74,6 +77,10 @@ GEM
     minitest (5.3.3)
     multi_json (1.9.2)
     multi_xml (0.5.5)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
+    normalize-rails (3.0.1)
     nprogress-rails (0.1.2.3)
     orm_adapter (0.5.0)
     pg (0.17.1)
@@ -154,6 +161,8 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   jquery-turbolinks
+  neat
+  normalize-rails
   nprogress-rails
   pg
   rails (~> 4.1.0)
