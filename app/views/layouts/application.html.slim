@@ -4,25 +4,27 @@ html
     meta charset="utf-8"
     meta name="robots" content="index, follow"
     meta name="author" content="Daniel Weinmann"
+    meta name="viewport" content="initial-scale=1.0, width=device-width"
     - if content_for? :meta_tags
       / Page specific meta tags
       = yield :meta_tags
     - else
-      / Default meta tags for the whole site
+      / Meta tags for pages that don't have specific meta tags
       meta name="description" content=yield(:title)
-      meta name="keywords" content="#{yield :title} Tango Porto Alegre"
+      meta name="keywords" content="#{yield :title} Tangueros Porto Alegre"
       meta property="og:title" content=yield(:title)
       meta property="og:type" content="website"
       meta property="og:url" content=request.url
       meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}"
-      meta property="og:site_name" content="Tango Porto Alegre"
-      meta property="fb:app_id" content=ENV['FACEBOOK_APP_ID']
       meta property="og:description" content=yield(:title)
-      meta property="fb:admins" content="567237711"
-    title= "#{"#{yield :title} · " if content_for?(:title)}Tango Porto Alegre"
+    / Metatags for every page
+    meta property="og:site_name" content="Tangueros Porto Alegre"
+    meta property="fb:app_id" content=ENV['FACEBOOK_APP_ID']
+    meta property="fb:admins" content=ENV['FACEBOOK_ADMINS']
+    title= "#{"#{yield :title} · " if content_for?(:title)}Tangueros Porto Alegre"
     - if content_for? :external_js
       = yield :external_js
-    link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet' type='text/css'
+    link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet'
     = stylesheet_link_tag "application"
     link rel="shortcut icon" href==image_path('logo.png')
     javascript:
@@ -43,23 +45,22 @@ html
       - for key, msg in flash
         - unless key == :timedout
           div class="#{key}" = msg
-    #pre_header_wrapper
-      #pre_header
-        - if current_user
-          #current_user.menu
-            a.open href="#"
-              = current_user.name + " "
-              span ▾
-            nav
-              = link_to "Meu cadastro", edit_user_registration_path
-              = link_to "Meus eventos", events_user_path(current_user)
-              hr
-              = link_to "Sair", destroy_user_session_path, method: :delete
-        - else
-          .sign_in
-            = link_to "Cadastre-se", new_user_registration_path
-            |  | 
-            = link_to "Login", new_user_session_path
+    #pre_header
+      - if current_user
+        #current_user.menu
+          a.open href="#"
+            = current_user.name + " "
+            span ▾
+          nav
+            = link_to "Meu cadastro", edit_user_registration_path
+            = link_to "Meus eventos", events_user_path(current_user)
+            hr
+            = link_to "Sair", destroy_user_session_path, method: :delete
+      - else
+        .sign_in
+          = link_to "Cadastre-se", new_user_registration_path
+          |  | 
+          = link_to "Login", new_user_session_path
     #header
       #logo
         = link_to :root do
