@@ -18,10 +18,8 @@
   background: $pre_header_color
 #pre_header
   padding: $tiny_margin_size 0
-  +grid-container
   height: $margin_size
   .sign_in, #current_user
-    +grid(3)
     float: right
     font-size: $small_size
     font-weight: $bold_weight
@@ -35,12 +33,9 @@
         text-decoration: underline
 #header
   height: 100px
-  +grid-container
   width: 962px
-  +clearfix
   overflow: visible
   #logo
-    +grid(7)
     .image
       float: left
       width: 100px
@@ -59,18 +54,11 @@
   #social
     background-color: $border_color
     border: 1px solid $border_color
-    +grid(5)
-    +omega
     margin-top: $small_margin_size
     padding: $small_margin_size
     width: 374px
     height: 74px
-    +border-top-left-radius($radius_size)
-    +border-top-right-radius($radius_size)
 #content
   .new
     .button
       margin-top: $margin_size
-      +grid(6)
-      +alpha
-      +grid-push(3)
