@@ -1,8 +1,22 @@
 #flash
+#pre_header_wrapper
+  background-color: $pre_header_color 
 #pre_header
   +outer-container
+  color: $pre_header_text_color
+  text-align: right
+  a
+    color: $pre_header_text_color
+    font-weight: $bold_weight
+    text-decoration: none
 #header
   +outer-container
+  img
+    +span-columns(2)
+  h1
+    +span-columns(2)
+  h2
+    +span-columns(2)
 #content
   +outer-container
   background-color: $container_color

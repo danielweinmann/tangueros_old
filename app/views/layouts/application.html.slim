@@ -45,29 +45,28 @@ html
       - for key, msg in flash
         - unless key == :timedout
           div class="#{key}" = msg
-    #pre_header
-      - if current_user
-        #current_user.menu
-          a.open href="#"
-            = current_user.name + " "
-            span ▾
-          nav
-            = link_to "Meu cadastro", edit_user_registration_path
-            = link_to "Meus eventos", events_user_path(current_user)
-            hr
-            = link_to "Sair", destroy_user_session_path, method: :delete
-      - else
-        .sign_in
-          = link_to "Cadastre-se", new_user_registration_path
-          |  | 
-          = link_to "Login", new_user_session_path
+    #pre_header_wrapper
+      #pre_header
+        - if current_user
+          #current_user.menu
+            a.open href="#"
+              = current_user.name + " "
+              span ▾
+            nav
+              = link_to "Meu cadastro", edit_user_registration_path
+              = link_to "Meus eventos", events_user_path(current_user)
+              hr
+              = link_to "Sair", destroy_user_session_path, method: :delete
+        - else
+          .sign_in
+            = link_to "Cadastre-se", new_user_registration_path
+            |  | 
+            = link_to "Login", new_user_session_path
     #header
-      #logo
-        = link_to :root do
-          .image= image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
-          .text
-            h1 title="Tangueros" Tangueros
-            h2 title="Porto Alegre" Porto Alegre
+      = link_to :root do
+        = image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
+        h1 Tangueros
+        h2 Porto Alegre
       #social
         .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
     #content
