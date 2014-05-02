@@ -58,3 +58,4 @@ html
         = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
     footer
       .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+      = link_to 'Créditos', page_path('credits')

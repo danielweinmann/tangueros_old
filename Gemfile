@@ -24,3 +24,4 @@ gem 'jquery-turbolinks'
 gem 'fb-channel-file'
 gem 'nprogress-rails'
 gem 'spring', group: :development
+gem 'high_voltage'
