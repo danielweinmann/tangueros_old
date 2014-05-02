@@ -1,5 +1,7 @@
 - content_for :title do
   = @event.name
+- content_for :facebook_like do
+  = event_url(@event)
 - content_for :external_js do
   script src="//maps.google.com/maps/api/js?v=3.13&libraries=geometry&sensor=false" type="text/javascript"
   script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'
@@ -13,7 +15,7 @@
       meta property="event:end_time" content=@event.end_time
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
-    meta property="og:url" content=request.url
+    meta property="og:url" content=event_url(@event)
     meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
     meta property="og:description" content=@event.description
 article

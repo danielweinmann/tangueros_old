@@ -53,13 +53,10 @@ html
           span Porto Alegre
     #content
       = yield
-      section.new
-        h2 Tá sabendo de algum evento que não tá aqui?
-        = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
     footer
       section.social
         h5 Curta esta página no Facebook
-        .fb-like data-href=request.url data-width="320" data-show-faces="true" data-share="true"
+        .fb-like data-href=(content_for?(:facebook_like) ? yield(:facebook_like) : request.url) data-width="320" data-show-faces="true" data-share="true"
       section.credits
         h5
           = "Feito com amor e "
