@@ -9,7 +9,8 @@
     meta property="og:title" content=@event.name
     meta property="og:type" content="event"
     meta property="event:start_time" content=@event.start_time
-    meta property="event:end_time" content=@event.end_time
+    - if @event.end_time
+      meta property="event:end_time" content=@event.end_time
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
     meta property="og:url" content=request.url

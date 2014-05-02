@@ -24,7 +24,7 @@ html
     title= "#{"#{yield :title} · " if content_for?(:title)}Tangueros Porto Alegre"
     - if content_for? :external_js
       = yield :external_js
-    link href='http://fonts.googleapis.com/css?family=Homenaje|Open+Sans:400,700' rel='stylesheet'
+    link href='http://fonts.googleapis.com/css?family=Homenaje%7COpen+Sans:400,700' rel='stylesheet'
     = stylesheet_link_tag "application"
     link rel="shortcut icon" href==image_path('tango.png')
     javascript:
@@ -57,5 +57,11 @@ html
         h2 Tá sabendo de algum evento que não tá aqui?
         = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
     footer
-      .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
-      = link_to 'Créditos', page_path('credits')
+      section.social
+        h5 Curta esta página no Facebook
+        .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+      section.credits
+        h5
+          = "Feito com amor e "
+          = link_to 'Open Source', page_path('credits')
+          = " em 2014 ♥"

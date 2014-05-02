@@ -1,13 +1,13 @@
 article.event
   a href=event_path(event) title=event.name
-    secion.picture= image_tag(event.picture) if event.picture
-    secion.info
+    .picture= image_tag(event.picture) if event.picture
+    .info
       h3= truncate event.name, length: 48
-      time.start date_time=event.start_time.iso8601
+      time.start datetime=event.start_time.iso8601
         = image_tag 'calendar.svg'
         = l event.start_time, format: :medium
       - if event.end_time.present?
-        time.end date_time=event.end_time.iso8601
+        time.end datetime=event.end_time.iso8601
           = "Até "
           = l event.end_time, format: :medium
       .location
