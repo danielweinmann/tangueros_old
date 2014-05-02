@@ -3,6 +3,11 @@
   color: $button_text_color
   &:hover
     color: $button_text_color
+.events
+  +media($tablet)
+    margin-bottom: -1 * flex-gutter(8)
+  +media($desktop)
+    margin-bottom: -1 * flex-gutter(12)
 .event
   +span-columns(6)
   height: 61.8vw
@@ -16,11 +21,15 @@
     +omega(2n)
     height: 30.9vw
     margin-bottom: flex-gutter(8)
+    &:last-child
+      margin-bottom: flex-gutter(8)
   +media($desktop)
     +span-columns(3)
     +omega(4n)
     height: 15.45vw
     margin-bottom: flex-gutter(12)
+    &:last-child
+      margin-bottom: flex-gutter(12)
   +media($large_desktop)
     height: golden-ratio($max_width, -4)
   .picture
