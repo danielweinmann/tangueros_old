@@ -12,11 +12,20 @@
 #header
   +outer-container
   img
-    +span-columns(2)
+    +span-columns(1)
   h1
-    +span-columns(2)
-  h2
-    +span-columns(2)
+    +span-columns(5)
+    margin-top: 1.5%
+    margin-bottom: 0
+    font-size: 2.5em
+    font-size: 10vw
+    +media($large_desktop)
+      font-size: 7.5em
+    span
+      color: $subheadline_color
+      font-family: $standard_font
+      font-weight: $bold_weight
+      font-size: 0.5em
 #content
   +outer-container
   background-color: $container_color

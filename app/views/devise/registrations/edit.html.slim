@@ -1,13 +1,13 @@
 - content_for :title do
   = "Meu cadastro"
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
   = devise_error_messages!
 
   .field
     = f.label :name
-    = f.text_field :name, :autofocus => true
+    = f.text_field :name, autofocus: true
   .field
     = f.label :email
     = f.email_field :email
@@ -15,14 +15,14 @@
       em Aguardando confirmação para: #{resource.unconfirmed_email}
   .field
     = f.label :password
-    = f.password_field :password, :autocomplete => "off"
+    = f.password_field :password, autocomplete: "off"
     em Deixe em branco caso não queira alterar sua senha
   .field
     = f.label :password_confirmation
-    = f.password_field :password_confirmation, :autocomplete => "off"
+    = f.password_field :password_confirmation, autocomplete: "off"
   .field
     = f.label :current_password
-    = f.password_field :current_password, :autocomplete => "off"
+    = f.password_field :current_password, autocomplete: "off"
     em Nós precisamos da sua senha atual para confirmar suas alterações
   .actions
     = f.submit "Atualizar cadastro", class: "button"

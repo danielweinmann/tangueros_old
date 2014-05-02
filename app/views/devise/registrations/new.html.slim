@@ -1,22 +1,22 @@
 - content_for :title do
   = "Cadastre-se"
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
   = devise_error_messages!
   
   .field
     = f.label :name
-    = f.text_field :name, :autofocus => true
+    = f.text_field :name, autofocus: true
   .field
     = f.label :email
     = f.email_field :email
   .field
     = f.label :password
-    = f.password_field :password, :autocomplete => "off"
+    = f.password_field :password, autocomplete: "off"
   .field
     = f.label :password_confirmation
-    = f.password_field :password_confirmation, :autocomplete => "off"
+    = f.password_field :password_confirmation, autocomplete: "off"
   .actions
     = f.submit "Efetuar cadastro", class: "button"
     = render "devise/shared/links"

@@ -65,13 +65,14 @@ html
     #header
       = link_to :root do
         = image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
-        h1 Tangueros
-        h2 Porto Alegre
-      #social
-        .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+        h1
+          = "Tangueros "
+          span Porto Alegre
     #content
       = yield
       .container
         .content.new
           h2 Tá sabendo de algum evento que não tá aqui?
           = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
+    #social
+      .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
