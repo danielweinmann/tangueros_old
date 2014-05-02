@@ -18,6 +18,12 @@
   margin-bottom: flex-gutter(6)
   &:last-child
     margin-bottom: 0
+  &:hover
+    background-color: $box_hover_color
+    h3
+      color: $box_hover_link_color
+      &:hover
+        color: $box_hover_link_hover_color
   +media($tablet)
     font-size: 1.382em
     +span-columns(4)
