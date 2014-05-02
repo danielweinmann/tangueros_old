@@ -13,7 +13,7 @@
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
     meta property="og:url" content=request.url
-    meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}")
+    meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
     meta property="og:description" content=@event.description
 article
   - if @event.picture
@@ -21,18 +21,18 @@ article
       .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
   h2= @event.name
   .type
-    = image_tag "event_types/#{@event.event_type.name.parameterize}.png", alt: @event.event_type.name, title: @event.event_type.name
+    = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
     = @event.event_type.name
   .description== @event.description.gsub("\n", "<br/>")
   .info
     - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
     .where
-      = image_tag 'map_marker.png'
+      = image_tag 'location.svg'
       .location= @event.location
       .address= @event.address
     .time
-      = image_tag 'calendar.png'
+      = image_tag 'calendar.svg'
       .start= l @event.start_time, format: :medium
       - if @event.end_time.present?
         .end

@@ -4,13 +4,13 @@ article.event
     secion.info
       h3= truncate event.name, length: 48
       time.start date_time=event.start_time.iso8601
-        = image_tag 'calendar.png'
+        = image_tag 'calendar.svg'
         = l event.start_time, format: :medium
       - if event.end_time.present?
         time.end date_time=event.end_time.iso8601
           = "Até "
           = l event.end_time, format: :medium
       .location
-        = image_tag 'map_marker.png'
+        = image_tag 'location.svg'
         span= event.location
-      .type= image_tag "event_types/#{event.event_type.name.parameterize}.png", alt: event.event_type.name, title: event.event_type.name
+      .type= image_tag "event_types/#{event.event_type.name.parameterize}.svg", alt: event.event_type.name, title: event.event_type.name
