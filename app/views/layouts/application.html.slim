@@ -45,24 +45,7 @@ html
       - for key, msg in flash
         - unless key == :timedout
           div class="#{key}" = msg
-    #pre_header_wrapper
-      header#pre_header
-        - if current_user
-          #current_user.menu
-            a.open href="#"
-              = current_user.name + " "
-              span ▾
-            nav
-              = link_to "Meu cadastro", edit_user_registration_path
-              = link_to "Meus eventos", events_user_path(current_user)
-              hr
-              = link_to "Sair", destroy_user_session_path, method: :delete
-        - else
-          .sign_in
-            = link_to "Cadastre-se", new_user_registration_path
-            |  | 
-            = link_to "Login", new_user_session_path
-    header#header
+    header
       = link_to :root do
         = image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
         h1
@@ -70,7 +53,7 @@ html
           span Porto Alegre
     #content
       = yield
-      section
+      section.new
         h2 Tá sabendo de algum evento que não tá aqui?
         = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
     footer

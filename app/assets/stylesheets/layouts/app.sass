@@ -1,21 +1,11 @@
 #flash
-#pre_header_wrapper
-  background-color: $pre_header_color 
-#pre_header
-  +outer-container
-  color: $pre_header_text_color
-  text-align: right
-  a
-    color: $pre_header_text_color
-    font-weight: $bold_weight
-    text-decoration: none
-#header
+body>header
   +outer-container
   img
     +span-columns(1)
   h1
     +span-columns(5)
-    margin-top: 1.5%
+    margin-top: flex-gutter(6)
     margin-bottom: 0
     font-size: 10vw
     +media($large_desktop)
@@ -29,5 +19,13 @@
   +outer-container
   >section
     +span-columns(6)
+  .new
+    .button
+      +span-columns(6)
 body>footer
   +outer-container
+  margin: flex-gutter(6) auto
+  +media($tablet)
+    margin: flex-gutter(8) auto
+  +media($desktop)
+    margin: flex-gutter(12) auto
