@@ -11,8 +11,11 @@ class Event < ActiveRecord::Base
   validates_format_of :url, with: FB_REGEX, :message => "deve ser uma URL de evento do Facebook válida"
   validate :must_have_facebook_data
   
-  before_create :set_facebook_data
-  
+  before_create do
+    self.set_facebook_data
+    self.permalink = self.name unless self.permalink.present?
+  end
+
   def self.happening
     where("start_time < current_timestamp AND end_time > current_timestamp AND end_time IS NOT NULL").order("start_time DESC")
   end
@@ -26,7 +29,7 @@ class Event < ActiveRecord::Base
   end
   
   def to_param
-    "#{self.id}-#{self.name.parameterize}"
+    "#{self.id}-#{self.permalink.parameterize}"
   end
 
   def facebook_id
