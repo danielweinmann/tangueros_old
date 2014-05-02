@@ -1,16 +1,15 @@
 li.event
-  a href=event_path(event)
-    .picture= image_tag(event.picture) if event.picture
-    .info
-      .name
-        h3= event.name
-      .time
+  a href=event_path(event) title=event.name
+    secion.picture= image_tag(event.picture) if event.picture
+    secion.info
+      h3= truncate event.name, length: 50
+      time.start date_time=event.start_time.iso8601
         = image_tag 'calendar.png'
-        .start= l event.start_time, format: :medium
-        - if event.end_time.present?
-          .end
-            |  Até 
-            = l event.end_time, format: :medium
+        = l event.start_time, format: :medium
+      - if event.end_time.present?
+        time.end date_time=event.end_time.iso8601
+          = "Até "
+          = l event.end_time, format: :medium
       .location
         = image_tag 'map_marker.png'
         = event.location
