@@ -1,8 +1,8 @@
-li.event
+article.event
   a href=event_path(event) title=event.name
     secion.picture= image_tag(event.picture) if event.picture
     secion.info
-      h3= truncate event.name, length: 50
+      h3= truncate event.name, length: 48
       time.start date_time=event.start_time.iso8601
         = image_tag 'calendar.png'
         = l event.start_time, format: :medium
@@ -12,5 +12,5 @@ li.event
           = l event.end_time, format: :medium
       .location
         = image_tag 'map_marker.png'
-        = event.location
+        span= event.location
       .type= image_tag "event_types/#{event.event_type.name.parameterize}.png", alt: event.event_type.name, title: event.event_type.name

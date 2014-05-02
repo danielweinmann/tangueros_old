@@ -10,6 +10,7 @@
   +media($desktop)
     margin-bottom: -1 * flex-gutter(12)
 .event
+  position: relative
   +span-columns(6)
   height: 30.9vw
   overflow: hidden
@@ -18,6 +19,7 @@
   &:last-child
     margin-bottom: 0
   +media($tablet)
+    font-size: 1.382em
     +span-columns(4)
     +omega(2n)
     margin-bottom: flex-gutter(8)
@@ -41,10 +43,60 @@
     width: 61.8%
     float: left
     padding: flex-gutter(12)
+  a
+    color: $text_color
+    &:hover
+      color: $text_color
   h3
     width: 100%
-    margin: 0
+    +margin(0 0 flex-gutter(12) 0)
     font-size: 0.9em
     height: 2em
     line-height: 1em
     color: $link_color
+    +media($tablet)
+      height: 3em
+    +media($desktop)
+      height: 3em
+  time
+    display: block
+    &.start
+      font-weight: $bold_weight
+      img
+        width: flex-gutter(4)
+        margin-right: flex-gutter(12)
+        +media($tablet)
+          width: flex-gutter(3)
+        +media($desktop)
+          width: flex-gutter(3)
+    &.end
+      margin-left: flex-gutter(4) + flex-gutter(12)
+      +media($tablet)
+        margin-left: flex-gutter(3) + flex-gutter(12) + 1.2%
+      +media($desktop)
+        margin-left: flex-gutter(3) + flex-gutter(12) + 1.2%
+  .location
+    line-height: 1.382em
+    img
+      width: flex-gutter(6)
+      margin-left: flex-gutter(20)
+      margin-right: flex-gutter(8)
+      +media($tablet)
+        width: flex-gutter(4)
+        margin-left: flex-gutter(24)
+        margin-right: flex-gutter(8)
+      +media($desktop)
+        width: flex-gutter(4)
+        margin-left: flex-gutter(24)
+        margin-right: flex-gutter(8)
+    span
+      height: 1.382em
+      width: 85%
+      display: inline-block
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+  .type
+    img
+      +position(absolute, null -3% -9% null)
+      opacity: 0.1

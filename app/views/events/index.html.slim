@@ -11,12 +11,12 @@
 - unless @happening.empty?
   section.events
     h2 Acontecendo agora
-    ul= render @happening
+    div= render @happening
 - unless @upcoming.empty?
   section.events
     h2 Próximos eventos
-    ul= render @upcoming
+    div= render @upcoming
 - unless @past.empty?
   section.events
     h2 Últimos eventos
-    ul= render @past
+    div= render @past
