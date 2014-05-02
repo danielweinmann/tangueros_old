@@ -9,17 +9,14 @@
   meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}"
   meta property="og:description" content="Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
 - unless @happening.empty?
-  .container
-    .content.happening
-      h2 Acontecendo agora
-      ul.events= render @happening
+  section.happening
+    h2 Acontecendo agora
+    .events= render @happening
 - unless @upcoming.empty?
-  .container
-    .content.upcoming
-      h2 Próximos eventos
-      ul.events= render @upcoming
+  section.upcoming
+    h2 Próximos eventos
+    .events= render @upcoming
 - unless @past.empty?
-  .container
-    .content.past
-      h2 Últimos eventos
-      ul.events= render @past
+  section.past
+    h2 Últimos eventos
+    .events= render @past

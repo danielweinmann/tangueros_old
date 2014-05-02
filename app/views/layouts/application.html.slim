@@ -46,7 +46,7 @@ html
         - unless key == :timedout
           div class="#{key}" = msg
     #pre_header_wrapper
-      #pre_header
+      header#pre_header
         - if current_user
           #current_user.menu
             a.open href="#"
@@ -62,7 +62,7 @@ html
             = link_to "Cadastre-se", new_user_registration_path
             |  | 
             = link_to "Login", new_user_session_path
-    #header
+    header#header
       = link_to :root do
         = image_tag 'logo.png', alt: "Tangueros", title: "Tangueros"
         h1
@@ -70,9 +70,8 @@ html
           span Porto Alegre
     #content
       = yield
-      .container
-        .content.new
-          h2 Tá sabendo de algum evento que não tá aqui?
-          = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
-    #social
+      section
+        h2 Tá sabendo de algum evento que não tá aqui?
+        = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
+    footer
       .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"

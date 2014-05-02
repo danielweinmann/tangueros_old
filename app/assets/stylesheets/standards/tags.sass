@@ -12,10 +12,20 @@ h1
   color: $headline_color
   font-family: $headline_font
   font-size: 3em
+  margin: flex-gutter(6) 0
+  +media($tablet)
+    margin: flex-gutter(8) 0
+  +media($desktop)
+    margin: flex-gutter(12) 0
 h2, h3, h4, h5
   color: $subheadline_color
   font-family: $standard_font
   font-weight: $bold_weight
+  margin: flex-gutter(6) * 0.5 0
+  +media($tablet)
+    margin: flex-gutter(8) * 0.5 0
+  +media($desktop)
+    margin: flex-gutter(12) * 0.5 0
 img
   max-width: 100%
 ul, ol
