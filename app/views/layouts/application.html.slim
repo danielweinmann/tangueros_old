@@ -59,7 +59,7 @@ html
     footer
       section.social
         h5 Curta esta página no Facebook
-        .fb-like data-href=(controller_name == "events" && action_name == "index" ? "http://tangueros.me/" : request.url) data-send="true" data-width="360" data-show-faces="true" data-font="arial"
+        .fb-like data-href=request.url data-width="320" data-show-faces="true" data-share="true"
       section.credits
         h5
           = "Feito com amor e "
