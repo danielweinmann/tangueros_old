@@ -1,1 +1,32 @@
 body[data-action="show"][data-controller="events"][data-namespace="null"]
+  #content>article
+    header
+      +span-columns(6)
+      margin-bottom: flex-gutter(6) * 0.618
+      +media($tablet)
+        margin-bottom: flex-gutter(8) * 0.618
+      +media($desktop)
+        margin-bottom: flex-gutter(12) * 0.618
+      position: relative
+      .picture
+        max-height: 38.2vw
+        overflow: hidden
+        +media($large_desktop)
+          max-height: em(458.4)
+        img
+          width: 100%
+      h2
+        +span-columns(5)
+        +media($tablet)
+          +span-columns(7 of 8)
+        +media($desktop)
+          +span-columns(11 of 12)
+      .type
+        +span-columns(1)
+        +omega
+        +media($tablet)
+          +span-columns(1 of 8)
+        +media($desktop)
+          +span-columns(1 of 12)
+        text-align: center
+        font-size: 1.382em

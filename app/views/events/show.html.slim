@@ -20,13 +20,14 @@
     meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
     meta property="og:description" content=@event.description
 article
-  - if @event.picture
-    = link_to @event.picture, target: :_blank do
-      .picture= image_tag @event.picture, style: "margin-top: #{@event.picture_margin}px"
-  h2= @event.name
-  .type
-    = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
-    = @event.event_type.name
+  header
+    .picture
+      - if @event.picture
+        = image_tag(@event.picture, style: "margin-top: #{@event.picture_margin}")
+    h2= @event.name
+    .type
+      = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
+      = @event.event_type.name
   .description== @event.description.gsub("\n", "<br/>")
   .info
     - if @event.latitude && @event.longitude
