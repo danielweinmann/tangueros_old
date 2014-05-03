@@ -37,6 +37,7 @@ class Event < ActiveRecord::Base
   end
 
   def facebook_data
+    return @facebook_data if @facebook_data
     return nil unless self.url.present? and self.url.match(FB_REGEX)
     access_token = HTTParty.get("https://graph.facebook.com/oauth/access_token?client_id=#{ENV['FACEBOOK_APP_ID']}&client_secret=#{ENV['FACEBOOK_APP_SECRET']}&grant_type=client_credentials").body.match(/access_token=(.+)/)[1]
     data = JSON.parse(HTTParty.get("https://graph.facebook.com/#{self.facebook_id}?access_token=#{URI::escape(access_token)}").body)
@@ -60,7 +61,21 @@ class Event < ActiveRecord::Base
         data["cover"] = cover["images"][cover_index]
       end
     end
-    data
+    @facebook_data = data
+  end
+  
+  def set_facebook_data
+    self.name = self.facebook_data["name"] unless self.name.present?
+    self.description = self.facebook_data["description"] unless self.description.present?
+    self.start_time = self.facebook_data["start_time"] unless self.start_time.present?
+    self.end_time = self.facebook_data["end_time"] unless self.end_time.present?
+    self.location = self.facebook_data["location"] unless self.location.present?
+    self.picture = self.facebook_data["cover"]["source"] unless self.picture.present? || self.facebook_data["cover"].nil?
+    self.picture_width = self.facebook_data["cover"]["width"] unless self.picture_width.present? || self.facebook_data["cover"].nil?
+    self.picture_height = self.facebook_data["cover"]["height"] unless self.picture_height.present? || self.facebook_data["cover"].nil?
+    self.address = self.facebook_data["venue"]["street"] unless self.address.present? || self.facebook_data["venue"].nil?
+    self.latitude = self.facebook_data["venue"]["latitude"] unless self.latitude.present? || self.facebook_data["venue"].nil?
+    self.longitude = self.facebook_data["venue"]["longitude"] unless self.longitude.present? || self.facebook_data["venue"].nil?
   end
   
   def update_facebook_data!
@@ -88,20 +103,6 @@ class Event < ActiveRecord::Base
   
   def must_have_facebook_data
     errors.add(:url, "não é um evento aberto do Facebook") unless self.facebook_data
-  end
-  
-  def set_facebook_data
-    self.name = self.facebook_data["name"] unless self.name.present?
-    self.description = self.facebook_data["description"] unless self.description.present?
-    self.start_time = self.facebook_data["start_time"] unless self.start_time.present?
-    self.end_time = self.facebook_data["end_time"] unless self.end_time.present?
-    self.location = self.facebook_data["location"] unless self.location.present?
-    self.picture = self.facebook_data["cover"]["source"] unless self.picture.present? || self.facebook_data["cover"].nil?
-    self.picture_width = self.facebook_data["cover"]["width"] unless self.picture_width.present? || self.facebook_data["cover"].nil?
-    self.picture_height = self.facebook_data["cover"]["height"] unless self.picture_height.present? || self.facebook_data["cover"].nil?
-    self.address = self.facebook_data["venue"]["street"] unless self.address.present? || self.facebook_data["venue"].nil?
-    self.latitude = self.facebook_data["venue"]["latitude"] unless self.latitude.present? || self.facebook_data["venue"].nil?
-    self.longitude = self.facebook_data["venue"]["longitude"] unless self.longitude.present? || self.facebook_data["venue"].nil?
   end
   
 end

@@ -1,6 +1,7 @@
+- hide_headline_and_article!
 - content_for :title do
   = "Fique por dentro do que acontece no tango de Porto Alegre!"
-- content_for :facebook_like do
+- content_for :url do
   = root_url
 - content_for :meta_tags do
   meta name="description" content="Fique por dentro do que acontece no tango de Porto Alegre! Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
@@ -24,4 +25,4 @@
     div= render @past
 section.new
   h2 Tá sabendo de algum evento que não tá aqui?
-  = link_to 'Clique aqui para adicionar um evento', '#', class: 'button'
+  = link_to 'Clique aqui para adicionar um evento', new_event_path, class: 'button'

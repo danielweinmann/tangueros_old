@@ -8,7 +8,7 @@ Tangueros::Application.routes.draw do
 
   get '/sitemap' => "events#sitemap", :as => :sitemap
   
-  resources :events do
+  resources :events, except: [:index] do
     get "sitemap", on: :collection
   end
 

@@ -14,8 +14,8 @@ html
       meta name="keywords" content="#{yield :title} Tangueros Porto Alegre"
       meta property="og:title" content=yield(:title)
       meta property="og:type" content="website"
-      meta property="og:url" content=request.url
-      meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("logo.png")}"
+      meta property="og:url" content=(content_for?(:url) ? yield(:url) : request.url)
+      meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}"
       meta property="og:description" content=yield(:title)
     / Metatags for every page
     meta property="og:site_name" content="Tangueros Porto Alegre"
@@ -52,11 +52,15 @@ html
           = "Tangueros "
           span Porto Alegre
     #content
-      = yield
+      - if content_for?(:title) && display_headline_and_article?
+        h2= yield :title
+        article= yield
+      - else
+        = yield
     footer
       section.social
         h5 Curta esta página no Facebook
-        .fb-like data-href=(content_for?(:facebook_like) ? yield(:facebook_like) : request.url) data-width="320" data-show-faces="true" data-share="true"
+        .fb-like data-href=(content_for?(:url) ? yield(:url) : request.url) data-width="320" data-show-faces="true" data-share="true"
       section.credits
         h5
           = "Feito com amor e "

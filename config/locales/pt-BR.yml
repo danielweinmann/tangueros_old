@@ -3,6 +3,12 @@
 
 pt-BR:
   activerecord:
+    models:
+      event: Evento
     attributes:
       event:
-        url: O link que você colou
+        url: Link para o evento no Facebook
+        event_type_id: Tipo de evento
+  time:
+    formats:
+      medium: ! '%a, %d/%m, %H:%M'
