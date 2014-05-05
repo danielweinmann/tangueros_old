@@ -46,19 +46,22 @@
     &:last-child
       margin-bottom: flex-gutter(8)
   +media($desktop)
-    +span-columns(3)
-    +omega(4n)
-    height: 15.45vw
+    font-size: 1.382em
+    +span-columns(4)
+    +omega(3n)
+    height: 20.6vw
     margin-bottom: flex-gutter(12)
     &:last-child
       margin-bottom: flex-gutter(12)
   +media($large_desktop)
-    height: golden-ratio($max_width, -4)
+    height: 226.72516359px
   .picture
     height: 100%
     width: 38.2%
     float: left
     background-color: $picture_color
+    overflow: hidden
+    text-align: center
   .info
     width: 61.8%
     float: left
@@ -80,6 +83,8 @@
       height: 3em
   time
     display: block
+    +media($desktop)
+      font-size: 0.8em
     &.start
       font-weight: $bold_weight
       img

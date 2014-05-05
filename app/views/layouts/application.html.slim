@@ -45,12 +45,13 @@ html
       - for key, msg in flash
         - unless key == :timedout
           div class="#{key}" = msg
-    header
-      = link_to :root do
-        = image_tag 'tango.svg', alt: "Tangueros", title: "Tangueros"
-        h1
-          = "Tangueros "
-          span Porto Alegre
+    #header_wrapper
+      header
+        = link_to :root do
+          = image_tag 'tango.svg', alt: "Tangueros", title: "Tangueros"
+          h1
+            = "Tangueros "
+            span Porto Alegre
     #content
       - if content_for?(:title) && display_headline_and_article?
         h2= yield :title

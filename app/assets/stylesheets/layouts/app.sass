@@ -1,21 +1,29 @@
 #flash
-body>header
-  +outer-container
-  img
-    +span-columns(1)
-    margin-top: -1px
-  h1
-    +span-columns(5)
-    margin-top: flex-gutter(6)
-    margin-bottom: 0
-    font-size: 10vw
-    +media($large_desktop)
-      font-size: 7.5em
-    span
-      color: $subheadline_color
-      font-family: $standard_font
-      font-weight: $bold_weight
-      font-size: 0.5em
+#header_wrapper
+  background-color: $container_color
+  border-bottom: 1px solid $border_color
+  header
+    +outer-container
+    position: relative
+    img
+      +span-columns(1)
+      margin-top: -1px
+    h1
+      position: absolute
+      bottom: -8%
+      left: 17.47153%
+      +span-columns(5)
+      margin-bottom: 0
+      font-size: 10vw
+      line-height: 10vw
+      +media($large_desktop)
+        font-size: 7.5em
+        line-height: 1em
+      span
+        color: $subheadline_color
+        font-family: $standard_font
+        font-weight: $bold_weight
+        font-size: 0.5em
 #content
   +outer-container
   >section
