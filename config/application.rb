@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-# I18n.config.enforce_available_locales = true
+I18n.config.enforce_available_locales = true
 
 module Tangueros
   class Application < Rails::Application
