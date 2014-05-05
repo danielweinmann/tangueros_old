@@ -2,27 +2,88 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
   #content>article
     header
       +span-columns(6)
-      // margin-bottom: flex-gutter(6) * 0.618
-      // +media($tablet)
-      //   margin-bottom: flex-gutter(8) * 0.618
-      // +media($desktop)
-      //   margin-bottom: flex-gutter(12) * 0.618
+      margin-bottom: flex-gutter(6) * 0.618
+      +media($tablet)
+        margin-bottom: flex-gutter(8) * 0.618
+      +media($desktop)
+        margin-bottom: flex-gutter(12) * 0.618
       .picture
+        margin-top: -1px
         max-height: 38.2vw
         overflow: hidden
         +media($large_desktop)
           max-height: em(458.4)
         img
           width: 100%
-      h2
       .type
+        +span-columns(2)
         font-size: 1.382em
-        margin-bottom: flex-gutter(6) * 0.618
+        padding-top: flex-gutter(18)
+        +media($tablet)
+          font-size: 1.618em
+        +media($desktop)
+          font-size: 1.618em
         img
-          width: flex-gutter(4)
-          margin-right: flex-gutter(24)
+          height: 8vw
+          margin-right: flex-gutter(6)
+          float: left
+          margin-top: -1 * flex-gutter(4)
+          +media($desktop)
+            height: 6vw
+          +media($large_desktop)
+            height: 2.4em
+      .time
+        +span-columns(2)
+        +media($tablet)
+          font-size: 1.382em
+        +media($desktop)
+          font-size: 1.382em
+        img
+          height: 8vw
+          margin-right: flex-gutter(6)
+          float: left
+          +media($desktop)
+            height: 6vw
+          +media($large_desktop)
+            height: 2.4em
+        .end
+          display: block
+          color: $small_color
+      .location
+        +span-columns(2)
+        +omega
+        +media($tablet)
+          font-size: 1.382em
+        +media($desktop)
+          font-size: 1.382em
+        img
+          height: 8vw
+          margin-right: flex-gutter(16)
+          float: left
+          +media($desktop)
+            height: 6vw
+          +media($large_desktop)
+            height: 2.4em
+        span
+          display: inline-block
+          width: flex-gutter(0.7)
+          line-height: 1em
     #map
       +span-columns(6)
       height: 61.8vw
+      +media($desktop)
+        height: 30.9vw
       +media($large_desktop)
-        height: em(741.6)
+        height: em(370.8)
+    .address
+      +span-columns(6)
+      background-color: $picture_color
+      padding: flex-gutter(24)
+      text-align: center
+      margin-bottom: flex-gutter(6) * 0.618
+      +media($tablet)
+        margin-bottom: flex-gutter(8) * 0.618
+      +media($desktop)
+        margin-bottom: flex-gutter(12) * 0.618
+    .button
+      +span-columns(6)

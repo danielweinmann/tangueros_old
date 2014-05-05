@@ -11,4 +11,5 @@ pt-BR:
         event_type_id: Tipo de evento
   time:
     formats:
-      medium: ! '%a, %d/%m, %H:%M'
+      medium: ! '%a, %-d/%-m, %k:%M'
+      medium_short: ! '%-d/%-m, %k:%M'

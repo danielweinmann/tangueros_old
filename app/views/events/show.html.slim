@@ -28,19 +28,20 @@ article
     .type
       = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
       = @event.event_type.name
+    .time
+      time.start datetime=@event.start_time.iso8601
+        = image_tag 'calendar.svg'
+        = l @event.start_time, format: :medium
+      - if @event.end_time.present?
+        time.end datetime=@event.end_time.iso8601
+          = "Até "
+          = l @event.end_time, format: :medium_short
+    .location
+      = image_tag 'location.svg'
+      span= @event.location
   - if @event.latitude && @event.longitude
     #map data-latitude=@event.latitude data-longitude=@event.longitude
-  .info
-    .where
-      = image_tag 'location.svg'
-      .location= @event.location
-      .address= @event.address
-    .time
-      = image_tag 'calendar.svg'
-      .start= l @event.start_time, format: :medium
-      - if @event.end_time.present?
-        .end
-          |  Até 
-          = l @event.end_time, format: :medium
-  .description== @event.description.gsub("\n", "<br/>")
+  - if @event.address.present?
+    .address= @event.address
+  p== @event.description.gsub("\n", "<br/>")
   = link_to "Visualizar evento no Facebook", @event.url, target: :_blank, class: "button"
