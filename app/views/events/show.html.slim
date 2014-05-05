@@ -39,9 +39,10 @@ article
     .location
       = image_tag 'location.svg'
       span= @event.location
-  - if @event.latitude && @event.longitude
-    #map data-latitude=@event.latitude data-longitude=@event.longitude
-  - if @event.address.present?
-    .address= @event.address
+  .where
+    - if @event.latitude && @event.longitude
+      #map data-latitude=@event.latitude data-longitude=@event.longitude
+    - if @event.address.present?
+      .address= @event.address
   p== @event.description.gsub("\n", "<br/>")
   = link_to "Visualizar evento no Facebook", @event.url, target: :_blank, class: "button"
