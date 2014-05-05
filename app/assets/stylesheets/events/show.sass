@@ -87,3 +87,10 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
         margin-bottom: flex-gutter(12) * 0.618
     .button
       +span-columns(6)
+      +media($tablet)
+        +span-columns(6)
+        +shift(1)
+      +media($desktop)
+        +span-columns(6)
+        +shift(3)
+      
