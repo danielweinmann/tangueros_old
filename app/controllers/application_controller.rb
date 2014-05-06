@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :namespace, :display_headline_and_article!, :hide_headline_and_article!, :display_headline_and_article?
 
-  after_action :verify_authorized, unless: :devise_controller?
-  after_action :verify_policy_scoped, unless: :devise_controller?
+  after_action :verify_authorized, unless: -> {devise_controller? || self.class == HighVoltage::PagesController}
+  after_action :verify_policy_scoped, unless: -> {devise_controller? || self.class == HighVoltage::PagesController}
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def display_headline_and_article?
