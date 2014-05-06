@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'rails', '~>4.1.0'
+gem 'rails', '~>4.1.1'
 
 gem 'inherited_resources'
 gem 'pg'
@@ -28,3 +28,4 @@ gem 'nprogress-rails'
 gem 'spring', group: :development
 gem 'high_voltage'
 gem 'rails_12factor', group: :production
+gem 'pundit'
