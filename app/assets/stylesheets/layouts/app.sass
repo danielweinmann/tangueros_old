@@ -24,6 +24,8 @@
     img
       +span-columns(1)
       margin-top: -1px
+      +media($desktop)
+        width: 8%
     h1
       position: absolute
       bottom: -8%
@@ -33,9 +35,14 @@
       margin-bottom: 0
       font-size: 10vw
       line-height: 10vw
+      +media($desktop)
+        bottom: -30%
+        left: 10%
+        font-size: 6vw
       +media($large_desktop)
-        font-size: 7.5em
+        font-size: 4em
         line-height: 1em
+        bottom: -5%
       span
         color: $subheadline_color
         font-family: $standard_font
