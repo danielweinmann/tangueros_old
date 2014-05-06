@@ -16,24 +16,27 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
         img
           width: 100%
       .type
-        +span-columns(3)
         font-size: 1.382em
-        padding-top: flex-gutter(18)
+        display: inline-block
+        vertical-align: top
+        width: 26%
         +media($tablet)
           font-size: 1.618em
+          width: 20%
         +media($desktop)
           font-size: 1.618em
+          width: 16%
         img
           height: 8vw
           margin-right: flex-gutter(6)
           float: left
-          margin-top: -1 * flex-gutter(8)
           +media($desktop)
             height: 6vw
           +media($large_desktop)
             height: 2.4em
       .time
-        +span-columns(3)
+        display: inline-block
+        width: 30%
         +media($tablet)
           font-size: 1.382em
         +media($desktop)
