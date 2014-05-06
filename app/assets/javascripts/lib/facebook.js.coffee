@@ -29,7 +29,7 @@ loadFacebookSDK = ->
 
 initializeFacebookSDK = ->
   FB.init
-    appId     : '435788819891315'
+    appId     : $("body").data("facebook_app_id")
     channelUrl: '//tangueros.me/channel.html'
     status    : true
     cookie    : true
