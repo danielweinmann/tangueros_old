@@ -5,10 +5,16 @@ pt-BR:
   activerecord:
     models:
       event: Evento
+      user: Usuário
     attributes:
       event:
         url: Link para o evento no Facebook
         event_type_id: Tipo de evento
+      user:
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmação da senha
+        remember_me: Lembre-se de mim
   time:
     formats:
       medium: ! '%a, %-d/%-m, %k:%M'

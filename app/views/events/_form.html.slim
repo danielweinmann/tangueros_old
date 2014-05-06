@@ -1,6 +1,6 @@
 = form_for(@event) do |form|
   - if @event.errors.any?
-    section.error
+    #error_explanation
       h3 = "#{pluralize(@event.errors.count, "erro impediu", "erros impediram")} que este evento fosse salvo:"
       ul
         - @event.errors.full_messages.each do |msg|
