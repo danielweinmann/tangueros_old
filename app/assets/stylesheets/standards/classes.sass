@@ -115,6 +115,12 @@
       overflow: hidden
       text-overflow: ellipsis
       white-space: nowrap
+      +media($tablet)
+        overflow: visible
+        white-space: normal
+      +media($desktop)
+        overflow: visible
+        white-space: normal
   .type
     img
       +position(absolute, null -0.2em -0.6em null)

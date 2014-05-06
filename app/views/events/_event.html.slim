@@ -6,10 +6,6 @@ article.event
       time.start datetime=event.start_time.iso8601
         = image_tag 'calendar.svg'
         = l event.start_time, format: :medium
-      - if event.end_time.present?
-        time.end datetime=event.end_time.iso8601
-          = "Até "
-          = l event.end_time, format: :medium_short
       .location
         = image_tag 'location.svg'
         span= event.location
