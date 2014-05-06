@@ -5,7 +5,7 @@ h2= t('.title', :resource => resource_class.model_name.human , :default => 'Edit
   = devise_error_messages!
 
   = form.label :name
-  = form.email_field :name
+  = form.text_field :name
   = form.label :email
   = form.email_field :email
   = form.label :password
