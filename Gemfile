@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.0'
 
+gem 'i18n', github: 'svenfuchs/i18n'
 gem 'rails', '~>4.1.0'
 
 gem 'inherited_resources'
@@ -12,7 +13,6 @@ gem 'httparty'
 gem 'gmaps4rails'
 gem 'devise'
 gem 'devise-i18n'
-gem 'i18n', github: 'svenfuchs/i18n'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'neat'
 gem 'normalize-rails'
