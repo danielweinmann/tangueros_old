@@ -1,4 +1,20 @@
 #flash
+  display: none
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 400
+  div
+    font-size: 1.2em
+    line-height: 1.2em
+    color: $flash_text_color
+    padding: 0.5em
+    margin: 0
+    text-align: center
+  .notice, .success
+    background-color: $flash_success_color
+  .failure, .error, .alert
+    background-color: $flash_failure_color
 #header_wrapper
   background-color: $container_color
   border-bottom: 1px solid $border_color
