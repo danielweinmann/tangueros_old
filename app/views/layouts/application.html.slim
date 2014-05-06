@@ -72,6 +72,14 @@ html
       - else
         = yield
     footer
+      section.user
+        nav
+          - if current_user
+              = link_to "Meu Cadastro", edit_user_registration_path
+              = link_to "Sair", destroy_user_session_path, method: :delete
+          - elsif namespace != "devise"
+              = link_to "Cadastre-se", new_user_registration_path
+              = link_to "Login", new_user_session_path
       section.social
         h5 Curta esta página no Facebook
         .fb-like data-href=(content_for?(:url) ? yield(:url) : request.url) data-width="320" data-show-faces="true" data-share="true"
