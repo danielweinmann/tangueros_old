@@ -57,10 +57,18 @@ Tangueros::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.asset_host = 'http://localhost:3000'
+  config.action_mailer.default_url_options = { :host => 'tangueros.me' }
+  config.action_mailer.asset_host = 'http://tangueros.me'
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :host => "localhost", :port => 25 }
+  ActionMailer::Base.smtp_settings = {
+      :port =>           '587',
+      :address =>        'smtp.mandrillapp.com',
+      :user_name =>      ENV['MANDRILL_USERNAME'],
+      :password =>       ENV['MANDRILL_APIKEY'],
+      :domain =>         'heroku.com',
+      :authentication => :plain
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
 end
-Rails.application.routes.default_url_options[:host]= 'localhost:3000'
+Rails.application.routes.default_url_options[:host]= 'tangueros.me'

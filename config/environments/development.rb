@@ -30,8 +30,8 @@ Tangueros::Application.configure do
   config.action_mailer.asset_host = 'http://localhost:3000'
 
   # Config for mailcatcher
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
 
   # config.action_controller.action_on_unpermitted_parameters = :raise
 
