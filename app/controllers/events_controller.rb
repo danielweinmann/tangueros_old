@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       format.html do
         @happening = Event.happening
         @upcoming = Event.upcoming
-        @past = Event.past.limit(12)
+        @past = Event.past.limit(6)
       end
     end
   end
