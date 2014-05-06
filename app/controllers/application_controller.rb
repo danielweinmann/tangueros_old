@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   after_action :verify_authorized, unless: :devise_controller?
   after_action :verify_policy_scoped, unless: :devise_controller?
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def display_headline_and_article?
     !@hide_headline_and_article
@@ -29,6 +30,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name
+  end
+
+  def user_not_authorized(exception)
+    policy_name = exception.policy.class.to_s.underscore
+    flash[:error] = I18n.t "pundit.#{policy_name}.#{exception.query}", default: 'Você não possui as permissões necessárias para realizar esta ação.'
+    redirect_to(request.referrer || root_path)
   end
 
 end

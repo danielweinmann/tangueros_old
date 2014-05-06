@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   after_action :verify_authorized, except: %i[index sitemap]
   after_action :verify_policy_scoped, only: %i[index sitemap]
+  before_action :authenticate_user!, only: %i[new]
 
   def index
     @events = policy_scope(Event)
@@ -26,8 +27,9 @@ class EventsController < ApplicationController
   end
 
   def new
-    new!
-    authorize @event
+    new! do
+      authorize @event
+    end
   end
 
   def create
