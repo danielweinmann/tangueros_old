@@ -68,7 +68,7 @@ Tangueros::Application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
     url: ":s3_domain_url",
-    "/:class/:attachment/:id_:basename.:style.:extension"
+    path: "/:class/:attachment/:id_:basename.:style.:extension"
   }
 
   ActionMailer::Base.smtp_settings = {
