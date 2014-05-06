@@ -67,8 +67,9 @@ html
             = link_to "Login", new_user_session_path
     #content
       - if content_for?(:title) && display_headline_and_article?
-        h2= yield :title
-        article= yield
+        article
+          h2= yield :title
+          = yield
       - else
         = yield
     footer

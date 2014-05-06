@@ -15,7 +15,13 @@ class EventsController < ApplicationController
       end
     end
   end
-  
+
+  def create
+    @event = Event.new(event_params)
+    @event.user = current_user
+    create!
+  end
+
   def sitemap
     sitemap! do |format|
       format.xml do
@@ -28,8 +34,8 @@ class EventsController < ApplicationController
 
   private
 
-  def permitted_params
-    params.permit(event: [:url, :event_type_id])
+  def event_params
+    params.require(:event).permit(:url, :event_type_id)
   end
 
 end
