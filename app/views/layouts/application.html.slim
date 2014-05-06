@@ -55,7 +55,7 @@ html
         - if current_user
           .menu
             a.open href="#"
-              = image_tag current_user.image.url(:thumb)
+              = image_tag(current_user.image.present? ? current_user.image.url(:thumb) : "user.svg")
               = truncate current_user.name, length: 18
               span ▾
             nav
