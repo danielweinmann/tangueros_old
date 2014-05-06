@@ -52,6 +52,19 @@ html
           h1
             = "Tangueros "
             span Porto Alegre
+        - if current_user
+          .menu
+            a.open href="#"
+              = current_user.name + " "
+              span ▾
+            nav
+              = link_to "Meu Cadastro", edit_user_registration_path
+              hr
+              = link_to "Sair", destroy_user_session_path, method: :delete
+        - else
+          nav.sign_in
+            = link_to "Cadastre-se", new_user_registration_path
+            = link_to "Login", new_user_session_path
     #content
       - if content_for?(:title) && display_headline_and_article?
         h2= yield :title

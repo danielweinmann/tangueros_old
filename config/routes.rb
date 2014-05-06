@@ -12,10 +12,6 @@ Tangueros::Application.routes.draw do
     get "sitemap", on: :collection
   end
 
-  resources :users, except: [:show, :new, :create] do
-    get 'events', on: :member
-  end
-
   root "events#index"
 
 end
