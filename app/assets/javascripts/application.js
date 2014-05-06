@@ -5,12 +5,8 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require underscore
 //= require gmaps/google
 //= require_tree ./lib
 //= require_tree .
-//= require turbolinks
-//= require nprogress
-//= require nprogress-turbolinks
