@@ -61,21 +61,22 @@ Tangueros::Application.configure do
   config.action_mailer.asset_host = 'http://tangueros.me'
 
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    url: ":s3_domain_url"
   }
 
   ActionMailer::Base.smtp_settings = {
-      :port =>           '587',
-      :address =>        'smtp.mandrillapp.com',
-      :user_name =>      ENV['MANDRILL_USERNAME'],
-      :password =>       ENV['MANDRILL_APIKEY'],
-      :domain =>         'heroku.com',
-      :authentication => :plain
+      port:           '587',
+      address:        'smtp.mandrillapp.com',
+      user_name:      ENV['MANDRILL_USERNAME'],
+      password:       ENV['MANDRILL_APIKEY'],
+      domain:         'heroku.com',
+      authentication: :plain
   }
   ActionMailer::Base.delivery_method = :smtp
 
