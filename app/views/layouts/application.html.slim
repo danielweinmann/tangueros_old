@@ -55,7 +55,8 @@ html
         - if current_user
           .menu
             a.open href="#"
-              = current_user.name + " "
+              = image_tag current_user.image.url(:thumb)
+              = truncate current_user.name, length: 18
               span ▾
             nav
               = link_to "Meus dados", edit_user_registration_path

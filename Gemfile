@@ -30,3 +30,4 @@ gem 'high_voltage'
 gem 'rails_12factor', group: :production
 gem 'pundit'
 gem 'letter_opener', :group => :development
+gem 'paperclip', '~> 4.1.1'
