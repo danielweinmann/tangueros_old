@@ -22,8 +22,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    show!
-    authorize @event
+    show! do
+      authorize @event
+    end
   end
 
   def new
@@ -36,7 +37,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     authorize @event
-    create!
+    create!(notice: "Evento criado com sucesso! Agora é só compartilhar :D")
+  end
+
+  def destroy
+    authorize resource
+    destroy!(notice: "Evento foi excluído com sucesso.") { root_path }
   end
 
   def sitemap

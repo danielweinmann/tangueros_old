@@ -44,3 +44,5 @@ article
     = " · #{@event.address}" if @event.address
   p== @event.description.gsub("\n", "<br/>")
   = link_to "Visualizar evento no Facebook", @event.url, target: :_blank, class: "button"
+  - if policy(@event).destroy?
+    = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"
