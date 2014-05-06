@@ -8,5 +8,5 @@
   = form.label :url
   = form.text_field :url, placeholder: "http://www.facebook.com/events/1234567890/"
   = form.label :event_type_id
-  = form.collection_select :event_type_id, EventType.order(:name), :id, :name, selected: @event.event_type_id
+  = form.collection_select :event_type_id, EventType.order(:id), :id, :name, selected: @event.event_type_id
   = form.submit
