@@ -36,13 +36,11 @@ article
         time.end datetime=@event.end_time.iso8601
           = "Até "
           = l @event.end_time, format: :medium_short
-    .location
-      = image_tag 'location.svg'
-      span= @event.location
   .where
     - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
-    - if @event.address.present?
-      .address= @event.address
+    = image_tag 'location.svg'
+    = @event.location
+    = "· #{@event.address}" if @event.address
   p== @event.description.gsub("\n", "<br/>")
   = link_to "Visualizar evento no Facebook", @event.url, target: :_blank, class: "button"
