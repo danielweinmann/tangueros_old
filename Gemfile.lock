@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/svenfuchs/i18n.git
-  revision: c532efd6fcfe831c14dd6605642e5084e5f35baa
-  specs:
-    i18n (0.6.9)
-
-GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
   revision: 3e207d0a8275870019f14c4a8d4d9a32aace043d
   branch: master
@@ -75,6 +69,7 @@ GEM
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    i18n (0.6.9)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
@@ -179,7 +174,6 @@ DEPENDENCIES
   gmaps4rails
   high_voltage
   httparty
-  i18n!
   inherited_resources
   jquery-rails
   jquery-turbolinks

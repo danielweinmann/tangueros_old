@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'i18n', github: 'svenfuchs/i18n'
 gem 'rails', '~>4.1.0'
 
 gem 'inherited_resources'
