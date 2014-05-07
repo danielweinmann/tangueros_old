@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  validates_presence_of :user, :event_type, :name, :start_time, :description, :location, :address
+  validates_presence_of :user, :event_type, :name, :starts_at, :description, :location, :address
 
   geocoded_by :full_address
   after_validation :geocode
@@ -18,15 +18,15 @@ class Event < ActiveRecord::Base
   end
 
   def self.happening
-    where("start_time < current_timestamp AND end_time > current_timestamp AND end_time IS NOT NULL").order("start_time DESC")
+    where("starts_at < current_timestamp AND ends_at > current_timestamp AND ends_at IS NOT NULL").order("starts_at DESC")
   end
 
   def self.upcoming
-    where("start_time >= current_timestamp").order(:start_time)
+    where("starts_at >= current_timestamp").order(:starts_at)
   end
 
   def self.past
-    where("(end_time IS NOT NULL AND end_time < current_timestamp) OR (end_time IS NULL AND start_time < current_timestamp)").order("start_time DESC")
+    where("(ends_at IS NOT NULL AND ends_at < current_timestamp) OR (ends_at IS NULL AND starts_at < current_timestamp)").order("starts_at DESC")
   end
   
   def to_param

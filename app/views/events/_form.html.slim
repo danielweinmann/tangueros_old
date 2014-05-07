@@ -5,8 +5,12 @@
       ul
         - @event.errors.full_messages.each do |msg|
           li= msg
-  = form.label :url
-  = form.text_field :url, placeholder: "http://www.facebook.com/events/1234567890/"
+  = form.label :name
+  = form.text_field :name
+  = form.label :starts_at
+  = form.datetime_select :starts_at
   = form.label :event_type_id
   = form.collection_select :event_type_id, EventType.order(:id), :id, :name, selected: @event.event_type_id
+  = form.label :url
+  = form.text_field :url, placeholder: "http://www.site.do.seu.evento/"
   = form.submit

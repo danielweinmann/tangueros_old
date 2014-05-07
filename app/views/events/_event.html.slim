@@ -3,9 +3,9 @@ article.event
     .image= image_tag(event.image.url(:medium)) if event.image.present?
     .info
       h3= truncate event.name, length: 48
-      time.start datetime=event.start_time.iso8601
+      time.start datetime=event.starts_at.iso8601
         = image_tag 'calendar.svg'
-        = l event.start_time, format: :medium
+        = l event.starts_at, format: :medium
       .location
         = image_tag 'location.svg'
         span= event.location
