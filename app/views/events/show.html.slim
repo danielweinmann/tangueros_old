@@ -1,4 +1,4 @@
-- hide_headline_and_article!
+- suppress_headline_and_article!
 - content_for :title do
   = @event.name
 - content_for :url do
@@ -17,13 +17,13 @@
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
     meta property="og:url" content=event_url(@event)
-    meta property="og:image" content=(@event.picture ? @event.picture : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
+    meta property="og:image" content=(@event.image.present? ? @event.image.url : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
     meta property="og:description" content=@event.description
 article
   header
-    .picture
-      - if @event.picture
-        = image_tag(@event.picture, style: "margin-top: #{@event.picture_margin}")
+    .image
+      - if @event.image.present?
+        = image_tag(@event.image.url, style: "margin-top: #{@event.margin}")
     h2= @event.name
     .type
       = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
@@ -43,6 +43,7 @@ article
     = @event.location
     = " · #{@event.address}" if @event.address
   p== @event.description.gsub("\n", "<br/>")
-  = link_to "Visualizar evento no Facebook", @event.url, target: :_blank, class: "button"
+  - if @event.url.present?
+    = link_to "Ir para o site do evento", @event.url, target: :_blank, class: "button"
   - if policy(@event).destroy?
     = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"

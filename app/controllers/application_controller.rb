@@ -3,22 +3,22 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :namespace, :display_headline_and_article!, :hide_headline_and_article!, :display_headline_and_article?
+  helper_method :namespace, :add_headline_and_article!, :suppress_headline_and_article!, :add_headline_and_article?
 
   after_action :verify_authorized, unless: -> {devise_controller? || self.class == HighVoltage::PagesController}
   after_action :verify_policy_scoped, unless: -> {devise_controller? || self.class == HighVoltage::PagesController}
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def display_headline_and_article?
-    !@hide_headline_and_article
+  def add_headline_and_article?
+    !@suppress_headline_and_article
   end
 
-  def display_headline_and_article!
-    @hide_headline_and_article = false
+  def add_headline_and_article!
+    @suppress_headline_and_article = false
   end
 
-  def hide_headline_and_article!
-    @hide_headline_and_article = true
+  def suppress_headline_and_article!
+    @suppress_headline_and_article = true
   end
 
   def namespace

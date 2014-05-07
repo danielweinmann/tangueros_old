@@ -23,6 +23,7 @@ GEM
       activesupport (= 4.1.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_decorator (0.3.4)
     activemodel (4.1.1)
       activesupport (= 4.1.1)
       builder (~> 3.1)
@@ -114,6 +115,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-meta (1.1.0)
+      paperclip (>= 3.0.2, < 5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     pundit (0.2.3)
@@ -190,6 +193,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_decorator
   aws-sdk
   coffee-rails
   devise
@@ -207,6 +211,7 @@ DEPENDENCIES
   normalize-rails
   nprogress-rails
   paperclip (~> 4.1.1)
+  paperclip-meta
   pg
   pundit
   rails (~> 4.1.1)

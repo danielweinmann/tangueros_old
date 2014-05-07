@@ -1,6 +1,6 @@
 article.event
   a href=event_path(event) title=event.name
-    .picture= image_tag(event.picture) if event.picture
+    .image= image_tag(event.image.url(:medium)) if event.image.present?
     .info
       h3= truncate event.name, length: 48
       time.start datetime=event.start_time.iso8601

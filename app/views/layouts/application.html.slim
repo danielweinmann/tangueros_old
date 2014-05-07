@@ -55,7 +55,7 @@ html
         - if current_user
           .menu
             a.open href="#"
-              = image_tag(current_user.image.present? ? current_user.image.url(:thumb) : "user.svg")
+              = image_tag(current_user.thumbnail)
               = truncate current_user.name, length: 18
               span ▾
             nav
@@ -67,9 +67,10 @@ html
             = link_to "Cadastre-se", new_user_registration_path
             = link_to "Login", new_user_session_path
     #content
-      - if content_for?(:title) && display_headline_and_article?
+      - if add_headline_and_article?
         article
-          h2= yield :title
+          - if content_for?(:title)
+            h2= yield :title
           = yield
       - else
         = yield
