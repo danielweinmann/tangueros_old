@@ -1,4 +1,8 @@
 $(document).ready ->
+  $('.timestamp').datetimepicker
+    language: 'pt-br'
+    defaultDate: "24/7/13"
+    useSeconds: false
   $(".open").on "click", (event) ->
     event.preventDefault()
     event.stopPropagation()

@@ -6,6 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/pt-br
+//= require locales/bootstrap-datetimepicker.pt-BR
 //= require underscore
 //= require gmaps/google
 //= require_tree ./lib

@@ -8,8 +8,14 @@ pt-BR:
       user: Usuário
     attributes:
       event:
-        url: Link para o evento no Facebook
+        name: Nome
         event_type_id: Tipo de evento
+        starts_at: Data e hora de início
+        ends_at: Data e hora de término
+        location: Local
+        address: Endereço
+        image: Imagem do evento
+        url: Site do evento
       user:
         name: Nome
         image: Foto do perfil

@@ -7,10 +7,19 @@
           li= msg
   = form.label :name
   = form.text_field :name
-  = form.label :starts_at
-  = form.datetime_select :starts_at
   = form.label :event_type_id
   = form.collection_select :event_type_id, EventType.order(:id), :id, :name, selected: @event.event_type_id
+  = form.label :starts_at
+  = form.text_field :starts_at, class: "timestamp"
+  = form.label :ends_at
+  em Deixe em branco caso você não queira informar a hora que termina o seu evento
+  = form.text_field :ends_at, class: "timestamp"
+  = form.label :location
+  = form.text_field :location
+  = form.label :address
+  = form.text_field :address
+  = form.label :image
+  = form.file_field :image
   = form.label :url
   = form.text_field :url, placeholder: "http://www.site.do.seu.evento/"
   = form.submit
