@@ -10,7 +10,7 @@
   = form.label :event_type_id
   = form.collection_select :event_type_id, EventType.order(:id), :id, :name, selected: @event.event_type_id
   = form.label :starts_at
-  = form.text_field :starts_at, class: "timestamp"
+  = form.text_field :starts_at, :class => "timestamp"
   = form.label :ends_at
   em Deixe em branco caso você não queira informar a hora que termina o seu evento
   = form.text_field :ends_at, class: "timestamp"
