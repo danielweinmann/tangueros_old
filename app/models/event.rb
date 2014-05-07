@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   validates_presence_of :user, :event_type, :name, :start_time, :description, :location, :address
+
+  geocoded_by :full_address
+  after_validation :geocode
   
   before_create do
     self.permalink = self.name unless self.permalink.present?
@@ -28,6 +31,11 @@ class Event < ActiveRecord::Base
   
   def to_param
     "#{self.id}-#{self.permalink.parameterize}"
+  end
+
+  def full_address
+    return self.address if self.address.match(/Porto Alegre/i)
+    "#{self.address} Porto Alegre".strip
   end
 
 end
