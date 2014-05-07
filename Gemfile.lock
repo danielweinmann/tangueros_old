@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/josevalim/inherited_resources.git
+  revision: 559161287cd705def4868d3c0de6ddc2d8a8564c
+  branch: master
+  specs:
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0)
+
+GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
   revision: 3e207d0a8275870019f14c4a8d4d9a32aace043d
   branch: master
@@ -81,15 +90,9 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
-    inherited_resources (1.4.1)
-      has_scope (~> 0.6.0.rc)
-      responders (~> 1.0.0.rc)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-turbolinks (2.0.2)
-      railties (>= 3.1.0)
-      turbolinks
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
@@ -109,7 +112,6 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     normalize-rails (3.0.1)
-    nprogress-rails (0.1.2.3)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -119,8 +121,8 @@ GEM
     paperclip-meta (1.1.0)
       paperclip (>= 3.0.2, < 5.0)
     pg (0.17.1)
-    pikaday-gem (1.2.0)
-      railties (>= 3.1)
+    pickadate-rails (1.5.0)
+      railties (>= 3.1.0)
     polyglot (0.3.4)
     pundit (0.2.3)
       activesupport (>= 3.0.0)
@@ -181,8 +183,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.2)
-      coffee-rails
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
@@ -207,17 +207,15 @@ DEPENDENCIES
   gmaps4rails
   high_voltage
   httparty
-  inherited_resources
+  inherited_resources!
   jquery-rails
-  jquery-turbolinks
   letter_opener
   neat
   normalize-rails
-  nprogress-rails
   paperclip (~> 4.1.1)
   paperclip-meta
   pg
-  pikaday-gem
+  pickadate-rails
   pundit
   rails (~> 4.1.1)
   rails-i18n!
@@ -226,6 +224,5 @@ DEPENDENCIES
   slim
   slim-rails
   spring
-  turbolinks
   uglifier
   underscore-rails

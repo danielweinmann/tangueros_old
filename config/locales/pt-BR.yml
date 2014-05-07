@@ -12,6 +12,7 @@ pt-BR:
         event_type_id: Tipo de evento
         starts_at: Data e hora de início
         ends_at: Data e hora de término
+        description: Descrição
         location: Local
         address: Endereço
         image: Imagem do evento
@@ -27,3 +28,4 @@ pt-BR:
     formats:
       medium: ! '%a, %-d/%-m, %k:%M'
       medium_short: ! '%-d/%-m, %k:%M'
+      time: ! '%H:%M'

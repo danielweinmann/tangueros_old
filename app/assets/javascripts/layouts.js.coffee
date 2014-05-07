@@ -1,6 +1,9 @@
 $(document).ready ->
-  $(".timestamp").each ->
-    @.picker = new Pikaday({ field: @ })
+  $("input.date").pickadate
+    format: 'dd/mm/yyyy'
+  $("input.time").pickatime
+    format: 'HH:i'
+    formatSubmit: 'HH:i'
   $(".open").on "click", (event) ->
     event.preventDefault()
     event.stopPropagation()

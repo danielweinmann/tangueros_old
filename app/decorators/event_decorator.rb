@@ -9,4 +9,8 @@ module EventDecorator
     "-#{(ratio / 2.0 * 100) - 38.2}%"
   end
 
+  def display_description
+    self.description.gsub("\n", "<br/>") if self.description
+  end
+
 end

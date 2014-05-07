@@ -23,7 +23,7 @@ article
   header
     .image
       - if @event.image.present?
-        = image_tag(@event.image.url, style: "margin-top: #{@event.margin}")
+        = link_to image_tag(@event.image.url, style: "margin-top: #{@event.margin}"), @event.image.url, target: :_blank
     h2= @event.name
     .type
       = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
@@ -42,8 +42,10 @@ article
     = image_tag 'location.svg'
     = @event.location
     = " · #{@event.address}" if @event.address
-  p== @event.description.gsub("\n", "<br/>")
+  p== @event.display_description
   - if @event.url.present?
     = link_to "Ir para o site do evento", @event.url, target: :_blank, class: "button"
+  - if policy(@event).update?
+    = link_to 'Editar evento', edit_event_path(@event), class: "button"
   - if policy(@event).destroy?
     = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"

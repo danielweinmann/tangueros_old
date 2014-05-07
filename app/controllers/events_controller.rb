@@ -22,27 +22,34 @@ class EventsController < ApplicationController
   end
 
   def show
-    show! do
-      authorize @event
-    end
+    show! { authorize @event }
   end
 
   def new
-    new! do
-      authorize @event
-    end
+    new! { authorize @event }
   end
 
   def create
+    set_start_and_end_params!
     @event = Event.new(event_params)
     @event.user = current_user
     authorize @event
     create!(notice: "Evento criado com sucesso! Agora é só compartilhar :D")
   end
 
+  def edit
+    edit! { authorize @event }
+  end
+
+  def update
+    set_start_and_end_params!
+    authorize resource
+    update!(notice: "Evento atualizado com sucesso :D")
+  end
+
   def destroy
     authorize resource
-    destroy!(notice: "Evento foi excluído com sucesso.") { root_path }
+    destroy!(notice: "Evento excluído com sucesso :D") { root_path }
   end
 
   def sitemap
@@ -58,8 +65,17 @@ class EventsController < ApplicationController
 
   private
 
+  def permitted_params
+    params.permit(event: [:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url])
+  end
+
   def event_params
-    params.require(:event).permit(:name, :event_type_id, :starts_at, :ends_at, :location, :address, :image, :url)
+    params.require(:event).permit(:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url)
+  end
+
+  def set_start_and_end_params!
+    params[:event][:starts_at] = "#{params[:starts_at_date_submit]} #{params[:starts_at_time_submit]}" unless params[:event][:starts_at].present?
+    params[:event][:ends_at] = "#{params[:ends_at_date_submit]} #{params[:ends_at_time_submit]}" unless params[:event][:ends_at].present?
   end
 
 end
