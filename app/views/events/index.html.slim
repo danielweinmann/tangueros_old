@@ -15,7 +15,7 @@
   section.events
     h2
       = "Acontecendo agora"
-      = link_to "ver mais ￫", happening_events_path, class: "mobile"
+      = link_to "ver mais &#65515;".html_safe, happening_events_path, class: "mobile"
       = link_to "ver mais eventos acontecendo agora ￫", happening_events_path, class: "not_mobile"
     div= render @happening
   hr
