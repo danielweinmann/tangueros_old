@@ -15,7 +15,7 @@
   section.events
     h2
       = "Acontecendo agora"
-      = link_to "ver mais &#8594;".html_safe, happening_events_path, class: "mobile"
+      = link_to "ver mais", happening_events_path, class: "mobile"
       = link_to "ver mais eventos acontecendo agora ￫", happening_events_path, class: "not_mobile"
     div= render @happening
   hr
@@ -23,7 +23,7 @@
   section.events
     h2
       = "Próximos eventos"
-      = link_to "ver mais ￫", upcoming_events_path, class: "mobile"
+      = link_to "ver mais", upcoming_events_path, class: "mobile"
       = link_to "ver mais próximos eventos ￫", upcoming_events_path, class: "not_mobile"
     div= render @upcoming
   hr
@@ -31,7 +31,7 @@
   section.events
     h2
       = "Últimos eventos"
-      = link_to "ver mais ￫", past_events_path, class: "mobile"
+      = link_to "ver mais", past_events_path, class: "mobile"
       = link_to "ver mais eventos que já aconteceram ￫", past_events_path, class: "not_mobile"
     div= render @past
 section.new
