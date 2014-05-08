@@ -17,7 +17,7 @@ pt-BR:
         address: Endereço
         image: Foto do evento
         url: Site com mais informações
-        weekly: Evento semanal?
+        weekly: Evento semanal
       user:
         name: Nome
         image: Foto do perfil
