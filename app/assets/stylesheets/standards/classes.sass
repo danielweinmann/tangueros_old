@@ -182,11 +182,17 @@
     &::after
       content: "Clique para salvar"
       +button($highlight_color)
+  &[type=checkbox]
+    &::before
+      content: none
+    &.rip-active
+      &::after
+        content: none
   .rest-in-placeholder
     color: $strong_border_color
     border-bottom: 1px dashed $strong_border_color
 .saving
-  font-size: 1.382em
+  font-size: 1em
   padding: 0.2em 0.5em
   font-weight: $bold_weight
   background-color: $text_color

@@ -5,11 +5,15 @@ $(document).ready ->
     $('textarea').autosize()
   $('.editable').bind 'update.rest-in-place', ->
     $(@).hide()
+    if $(@).attr('type') == 'checkbox'
+      $(@).next().hide()
     $(@).after('<span class="saving">salvando...</span><div class="saving_break">&nbsp;</div>')
   $('.editable').bind 'success.rest-in-place failure.rest-in-place abort.rest-in-place', ->
     $('.saving').remove()
     $('.saving_break').remove()
     $(@).show()
+    if $(@).attr('type') == 'checkbox'
+      $(@).next().show()
   $("input.date").pickadate
     format: 'dd/mm/yyyy'
   $("input.time").pickatime

@@ -56,6 +56,9 @@ article id=dom_id(@event)
     = " · #{@event.address}" if @event.address.present?
   p class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea" data-placeholder="Descrição do seu evento"== @event.description
   #description
+  - if policy(@event).update?
+    = check_box_tag "weekly", "1", @event.weekly, :class => "editable", :"data-attribute" => "weekly", :"data-formtype" => "checkbox"
+    = label_tag "weekly", Event.human_attribute_name("weekly")
   .links
     - if @event.url.present?
       = link_to "Mais informações", @event.url, target: :_blank, class: "button"
