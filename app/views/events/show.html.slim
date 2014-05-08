@@ -21,6 +21,9 @@
     meta property="og:description" content=@event.description
 article id=dom_id(@event)
   header
+    - if policy(@event).update? && !@event.complete_profile?
+      .tips
+        ==@event.tips
     .image
       - if @event.image.present?
         = link_to image_tag(@event.image.url, style: "margin-top: #{@event.margin}"), @event.image.url, target: :_blank
@@ -52,9 +55,10 @@ article id=dom_id(@event)
     = @event.location
     = " · #{@event.address}" if @event.address.present?
   p#description class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea" data-placeholder="Descrição do seu evento"== @event.description
-  - if @event.url.present?
-    = link_to "Ir para site com mais informações", @event.url, target: :_blank, class: "button"
-  - if policy(@event).update?
-    = link_to 'Editar evento', edit_event_path(@event), class: "button"
-  - if policy(@event).destroy?
-    = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"
+  .links
+    - if @event.url.present?
+      = link_to "Mais informações", @event.url, target: :_blank, class: "button"
+    - if policy(@event).update?
+      = link_to 'Editar evento', edit_event_path(@event), class: "button"
+    - if policy(@event).destroy?
+      = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"

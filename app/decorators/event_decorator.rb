@@ -14,9 +14,9 @@ module EventDecorator
     true
   end
 
-  def complete_profile_message
+  def tips
     if self.description.blank?
-      "Que tal adicionar uma descrição para seu evento? #{link_to '#description', 'Clique aqui'} e comece agora mesmo :D"
+      "Que tal adicionar uma descrição para seu evento? Clique no #{link_to 'texto abaixo', '#description'} e comece agora mesmo :D"
     end
   end
 

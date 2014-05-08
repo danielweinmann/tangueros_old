@@ -57,7 +57,7 @@
       float: right
       color: $alternative_link_color
       &:hover
-        color: $link_color
+        color: $alternative_hover_color
 .event
   position: relative
   +span-columns(6)
@@ -172,7 +172,6 @@
 .editable
   cursor: pointer
   &::before
-    min-height: 5em
     content: "clique para editar..."
     color: $alternative_link_color
     float: right
@@ -193,3 +192,12 @@
   background-color: $text_color
   color: $highlight_color
   border-radius: 0.3em
+.tips
+  background-color: $alternative_highlight_color
+  color: $alternative_highlight_text_color
+  padding: 0.618em
+  font-size: 1.382em
+  a
+    color: $alternative_highlight_text_color
+    &:hover
+      color: $alternative_hover_color
