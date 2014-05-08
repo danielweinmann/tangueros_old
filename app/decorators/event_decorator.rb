@@ -34,6 +34,9 @@ module EventDecorator
     unless self.weekly?
       tips << "Seu evento acontece toda semana no mesmo horário? Clique na #{link_to 'caixa abaixo', '#weekly'} e ele irá aparecer sempre na agenda! \\o/"
     end
+    if self.ends_at.blank?
+      tips << "Seu evento tem data e hora pra acabar? Clique no #{link_to 'texto abaixo', '#ends_at'} e informe quando ;)"
+    end
     tips
   end
 

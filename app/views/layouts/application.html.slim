@@ -59,6 +59,7 @@ html
               = truncate current_user.name, length: 18
               span ▾
             nav
+              = link_to "Adicionar evento", new_event_path
               = link_to "Meus dados", edit_user_registration_path
               hr
               = link_to "Sair", destroy_user_session_path, method: :delete

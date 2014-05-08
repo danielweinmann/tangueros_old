@@ -57,7 +57,7 @@ article id=dom_id(@event)
     = image_tag 'location.svg'
     = @event.location
     = " · #{@event.address}" if @event.address.present?
-  p class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea" data-placeholder="Descrição do seu evento"== @event.description
+  p class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea" data-placeholder="Descrição do seu evento"= @event.description
   #description
   - if policy(@event).update?
     section.admin
@@ -67,21 +67,28 @@ article id=dom_id(@event)
           = form.label :image
           = form.file_field :image
       .field
+        = label_tag :name, Event.human_attribute_name(:name)
+        span#name.editable data-attribute="name" data-placeholder="Nome do seu evento"= @event.name
+      .field
+        = label_tag :starts_at, Event.human_attribute_name(:starts_at)
+        span#starts_at.editable data-attribute="starts_at" data-formtype="timestamp" data-placeholder="Início do evento"=("#{l(@event.starts_at.to_date)} #{l(@event.starts_at, format: :time)}" if @event.starts_at)
+      .field
+        = label_tag :ends_at, Event.human_attribute_name(:ends_at)
+        span#ends_at.editable data-attribute="ends_at" data-formtype="timestamp" data-placeholder="Fim do evento"=("#{l(@event.ends_at.to_date)} #{l(@event.ends_at, format: :time)}" if @event.ends_at)
+      .field
         = label_tag :location, Event.human_attribute_name(:location)
-        span#address.editable data-attribute="location" data-placeholder="Local do seu evento"== @event.location
+        span#location.editable data-attribute="location" data-placeholder="Local do seu evento"= @event.location
       .field
         = label_tag :address, Event.human_attribute_name(:address)
-        span#address.editable data-attribute="address" data-placeholder="Rua do evento, nº XXX"== @event.address
+        span#address.editable data-attribute="address" data-placeholder="Rua do evento, nº XXX"= @event.address
       .field
         = label_tag :url, Event.human_attribute_name(:url)
-        span#url.editable data-attribute="url" data-placeholder="http://www.site.do.seu.evento/"== @event.url
+        span#url.editable data-attribute="url" data-placeholder="http://www.site.do.seu.evento/"= @event.url
       .field
         = check_box_tag :weekly, "1", @event.weekly, :class => "editable", :"data-attribute" => "weekly", :"data-formtype" => "checkbox"
         = label_tag :weekly, Event.human_attribute_name(:weekly)
   .links
     - if @event.url.present?
       = link_to "Mais informações", @event.url, target: :_blank, class: "button"
-    - if policy(@event).update?
-      = link_to 'Editar evento', edit_event_path(@event), class: "button"
     - if policy(@event).destroy?
       = link_to 'Excluir evento', @event, method: :delete, data: { confirm: 'Seu evento será excluído. Você está certo disso?' }, class: "button"

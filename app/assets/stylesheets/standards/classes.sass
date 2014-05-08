@@ -188,12 +188,23 @@
     &::after
       content: "Clique para salvar"
       +button($highlight_color)
-  &[type=checkbox]
+  &[data-formtype=checkbox]
     &::before
       content: none
     &.rip-active
       &::after
         content: none
+  &[data-formtype=timestamp]
+    &.rip-active
+      &::after
+        content: none
+    [type=submit]
+      +button($highlight_color)
+      width: auto
+      margin: 0
+      margin-right: 0.5em
+    .cancel
+      line-height: 2.5em
   .rest-in-placeholder
     color: $strong_border_color
     border-bottom: 1px dashed $strong_border_color

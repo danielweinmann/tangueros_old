@@ -37,10 +37,6 @@ class EventsController < ApplicationController
     create!(notice: "Evento criado com sucesso! Agora é só compartilhar :D")
   end
 
-  def edit
-    edit! { authorize @event }
-  end
-
   def update
     set_start_and_end_params!
     authorize resource
