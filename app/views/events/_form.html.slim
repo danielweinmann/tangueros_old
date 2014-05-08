@@ -11,11 +11,11 @@
   = form.collection_select :event_type_id, EventType.order(:id), :id, :name, selected: @event.event_type_id
   = form.label :starts_at
   = text_field_tag :starts_at_date, (l(@event.starts_at.to_date) if @event.starts_at), class: "date", placeholder: "Data de início"
-  = text_field_tag :starts_at_time, (l(@event.starts_at.to_time, format: :time) if @event.starts_at), class: "time", placeholder: "Hora de início"
+  = text_field_tag :starts_at_time, (l(@event.starts_at, format: :time) if @event.starts_at), class: "time", placeholder: "Hora de início"
   = form.label :ends_at
   em Deixe em branco caso você não queira informar a hora que termina o seu evento
   = text_field_tag :ends_at_date, (l(@event.ends_at.to_date) if @event.ends_at), class: "date", placeholder: "Data de término"
-  = text_field_tag :ends_at_time, (l(@event.ends_at.to_time, format: :time) if @event.ends_at), class: "time", placeholder: "Hora de término"
+  = text_field_tag :ends_at_time, (l(@event.ends_at, format: :time) if @event.ends_at), class: "time", placeholder: "Hora de término"
   = form.label :description
   = form.text_area :description
   = form.label :location
