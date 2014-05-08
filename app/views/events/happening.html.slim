@@ -1,0 +1,7 @@
+- content_for :title do
+  = "Eventos acontecendo agora"
+- content_for :url do
+  = happening_events_url
+- if @events.exists?
+  section.events
+    = render @events

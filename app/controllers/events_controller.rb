@@ -4,19 +4,19 @@ class EventsController < ApplicationController
   
   inherit_resources
   respond_to :html, :json, :xml
-  custom_actions collection: :sitemap  
+  custom_actions collection: %i[happening upcoming past sitemap]
 
-  after_action :verify_authorized, except: %i[index sitemap]
-  after_action :verify_policy_scoped, only: %i[index sitemap]
+  after_action :verify_authorized, except: %i[index happening upcoming past sitemap]
+  after_action :verify_policy_scoped, only: %i[index happening upcoming past sitemap]
   before_action :authenticate_user!, only: %i[new]
 
   def index
     @events = policy_scope(Event)
     index! do |format|
       format.html do
-        @happening = @events.happening
-        @upcoming = @events.upcoming
-        @past = @events.past.limit(6)
+        @happening = @events.happening.limit(3)
+        @upcoming = @events.upcoming.limit(3)
+        @past = @events.past.limit(3)
       end
     end
   end
@@ -50,6 +50,21 @@ class EventsController < ApplicationController
   def destroy
     authorize resource
     destroy!(notice: "Evento excluído com sucesso :D") { root_path }
+  end
+
+  def happening
+    @events = policy_scope(Event).happening
+    happening!
+  end
+
+  def upcoming
+    @events = policy_scope(Event).upcoming
+    upcoming!
+  end
+
+  def past
+    @events = policy_scope(Event).past
+    past!
   end
 
   def sitemap

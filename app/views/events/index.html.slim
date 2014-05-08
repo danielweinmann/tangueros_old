@@ -13,15 +13,24 @@
   meta property="og:description" content="Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
 - if @happening.exists?
   section.events
-    h2 Acontecendo agora
+    h2
+      = "Acontecendo agora"
+      = link_to "ver mais ￫", happening_events_path, class: "mobile"
+      = link_to "ver mais eventos acontecendo agora ￫", happening_events_path, class: "not_mobile"
     div= render @happening
 - if @upcoming.exists?
   section.events
-    h2 Próximos eventos
+    h2
+      = "Próximos eventos"
+      = link_to "ver mais ￫", upcoming_events_path, class: "mobile"
+      = link_to "ver mais próximos eventos ￫", upcoming_events_path, class: "not_mobile"
     div= render @upcoming
 - if @past.exists?
   section.events
-    h2 Últimos eventos
+    h2
+      = "Últimos eventos"
+      = link_to "ver mais ￫", past_events_path, class: "mobile"
+      = link_to "ver mais eventos que já aconteceram ￫", past_events_path, class: "not_mobile"
     div= render @past
 section.new
   h2 Tá sabendo de algum evento que não tá aqui?

@@ -1,0 +1,7 @@
+- content_for :title do
+  = "Próximos eventos"
+- content_for :url do
+  = upcoming_events_url
+- if @events.exists?
+  section.events
+    = render @events
