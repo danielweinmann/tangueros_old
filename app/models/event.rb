@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   end
 
   def full_address
-    return self.address if self.address.match(/Porto Alegre/i)
+    return self.address if self.address && self.address.match(/Porto Alegre/i)
     "#{self.address} Porto Alegre".strip
   end
 
