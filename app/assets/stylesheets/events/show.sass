@@ -86,8 +86,23 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
       +media($desktop)
         font-size: 1.382em
         line-height: 1.2em
+    .admin
+      background-color: $alternative_box_color
+      padding: 0.6em
+      h4
+        color: $alternative_box_text_color
+      label
+        font-size: 0.9em
+        font-weight: $bold_weight
+      [type=checkbox]~label
+        margin-bottom: 0
     .links
       +span-columns(6)
+      margin-top: flex-gutter(6) * 0.618
+      +media($tablet)
+        margin-top: flex-gutter(8) * 0.618
+      +media($desktop)
+        margin-top: flex-gutter(12) * 0.618
       .button
         +span-columns(6)
         margin-bottom: flex-gutter(6) * 0.618
@@ -100,3 +115,5 @@ body[data-action="show"][data-controller="events"][data-namespace="null"]
           +span-columns(4)
           &:first-child:nth-last-child(1)
             +shift(8)
+          &:first-child:nth-last-child(2)
+            +shift(2)

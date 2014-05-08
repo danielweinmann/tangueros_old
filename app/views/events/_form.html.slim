@@ -18,10 +18,6 @@
   = text_field_tag :ends_at_time, (l(@event.ends_at, format: :time) if @event.ends_at), class: "time", placeholder: "Hora de término"
   = form.label :location
   = form.text_field :location
-  = form.label :address
-  = form.text_field :address
   = form.label :image
   = form.file_field :image
-  = form.label :url
-  = form.text_field :url, placeholder: "http://www.site.do.seu.evento/"
   = form.submit

@@ -13,11 +13,11 @@ pt-BR:
         starts_at: Data e hora de início
         ends_at: Data e hora de término
         description: Descrição
-        location: Local
+        location: Nome do local
         address: Endereço
         image: Imagem do evento
         url: Site com mais informações
-        weekly: Este evento acontece toda semana no mesmo horário?
+        weekly: Evento semanal?
       user:
         name: Nome
         image: Foto do perfil

@@ -22,8 +22,11 @@
 article id=dom_id(@event)
   header
     - if policy(@event).update? && !@event.complete_profile?
-      .tips
-        ==@event.tips
+      section.tips
+        h5 Dicas para deixar seu evento bonitão
+        ol
+          - @event.tips.each do |tip|
+            li== tip
     .image
       - if @event.image.present?
         = link_to image_tag(@event.image.url, style: "margin-top: #{@event.margin}"), @event.image.url, target: :_blank
@@ -57,8 +60,20 @@ article id=dom_id(@event)
   p class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea" data-placeholder="Descrição do seu evento"== @event.description
   #description
   - if policy(@event).update?
-    = check_box_tag "weekly", "1", @event.weekly, :class => "editable", :"data-attribute" => "weekly", :"data-formtype" => "checkbox"
-    = label_tag "weekly", Event.human_attribute_name("weekly")
+    section.admin
+      h4 Atualizar informações do evento
+      .field
+        = label_tag :location, Event.human_attribute_name(:location)
+        span#address.editable data-attribute="location" data-placeholder="Local do seu evento"== @event.location
+      .field
+        = label_tag :address, Event.human_attribute_name(:address)
+        span#address.editable data-attribute="address" data-placeholder="Rua do evento, nº XXX"== @event.address
+      .field
+        = label_tag :url, Event.human_attribute_name(:url)
+        span#url.editable data-attribute="url" data-placeholder="http://www.site.do.seu.evento/"== @event.url
+      .field
+        = check_box_tag :weekly, "1", @event.weekly, :class => "editable", :"data-attribute" => "weekly", :"data-formtype" => "checkbox"
+        = label_tag :weekly, Event.human_attribute_name(:weekly)
   .links
     - if @event.url.present?
       = link_to "Mais informações", @event.url, target: :_blank, class: "button"

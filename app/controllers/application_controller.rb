@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, unless: -> {devise_controller? || self.class == HighVoltage::PagesController}
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  # This will send the current_user to the view and instantiate UserDecorator
+  before_action :current_user
+
   def add_headline_and_article?
     !@suppress_headline_and_article
   end
