@@ -10,10 +10,14 @@ module EventDecorator
   end
 
   def complete_profile?
-    return unless self.image.present?
-    # return unless self.address.present?
-    # return unless self.description.present?
+    return if self.description.blank?
     true
+  end
+
+  def complete_profile_message
+    if self.description.blank?
+      "Que tal adicionar uma descrição para seu evento? #{link_to '#description', 'Clique aqui'} e comece agora mesmo :D"
+    end
   end
 
 end

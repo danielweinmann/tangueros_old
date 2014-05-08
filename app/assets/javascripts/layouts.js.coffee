@@ -6,7 +6,7 @@ $(document).ready ->
   $('.editable').bind 'update.rest-in-place', ->
     $(@).hide()
     $(@).after('<span class="saving">salvando...</span>')
-  $('.editable').bind 'success.rest-in-place failure.rest-in-place', ->
+  $('.editable').bind 'success.rest-in-place failure.rest-in-place abort.rest-in-place', ->
     $('.saving').remove()
     $(@).show()
   $("input.date").pickadate

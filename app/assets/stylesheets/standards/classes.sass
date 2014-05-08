@@ -172,6 +172,7 @@
 .editable
   cursor: pointer
   &::before
+    min-height: 5em
     content: "clique para editar..."
     color: $alternative_link_color
     float: right
@@ -182,6 +183,9 @@
     &::after
       content: "Clique para salvar"
       +button($highlight_color)
+  .rest-in-placeholder
+    color: $strong_border_color
+    border-bottom: 1px dashed $strong_border_color
 .saving
   font-size: 1.382em
   padding: 0.2em 0.5em
