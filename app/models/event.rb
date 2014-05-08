@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.upcoming
-    where("events.next_starts_at >= now()").order(:starts_at)
+    where("events.next_starts_at >= now()").order("events.next_starts_at")
   end
 
   def self.past
