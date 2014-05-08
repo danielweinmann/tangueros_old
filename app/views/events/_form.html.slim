@@ -18,6 +18,4 @@
   = text_field_tag :ends_at_time, (l(@event.ends_at, format: :time) if @event.ends_at), class: "time", placeholder: "Hora de término"
   = form.label :location
   = form.text_field :location
-  = form.label :image
-  = form.file_field :image
   = form.submit

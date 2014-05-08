@@ -15,7 +15,7 @@ pt-BR:
         description: Descrição
         location: Nome do local
         address: Endereço
-        image: Imagem do evento
+        image: Foto do evento
         url: Site com mais informações
         weekly: Evento semanal?
       user:

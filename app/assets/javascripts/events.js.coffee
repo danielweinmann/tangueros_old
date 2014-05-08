@@ -9,3 +9,5 @@ $(document).ready ->
       handler.bounds.extendWith(markers)
       handler.fitMapToBounds()
       handler.getMap().setZoom(16)
+  $('.field#image input[type=file]').on "change", ->
+    $(@).parent().submit()

@@ -62,6 +62,10 @@ article id=dom_id(@event)
   - if policy(@event).update?
     section.admin
       h4 Atualizar informações do evento
+      .field#image
+        = form_for(@event) do |form|
+          = form.label :image
+          = form.file_field :image
       .field
         = label_tag :location, Event.human_attribute_name(:location)
         span#address.editable data-attribute="location" data-placeholder="Local do seu evento"== @event.location
