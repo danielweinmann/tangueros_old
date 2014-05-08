@@ -19,7 +19,7 @@
     meta property="og:url" content=event_url(@event)
     meta property="og:image" content=(@event.image.present? ? @event.image.url : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
     meta property="og:description" content=@event.description
-article
+article id=dom_id(@event)
   header
     .image
       - if @event.image.present?
@@ -51,7 +51,7 @@ article
     = image_tag 'location.svg'
     = @event.location
     = " · #{@event.address}" if @event.address.present?
-  p== @event.display_description
+  p#description class=('editable' if policy(@event).update?) data-attribute="description" data-formtype="textarea"== @event.description
   - if @event.url.present?
     = link_to "Ir para site com mais informações", @event.url, target: :_blank, class: "button"
   - if policy(@event).update?

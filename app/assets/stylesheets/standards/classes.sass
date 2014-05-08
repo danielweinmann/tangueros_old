@@ -56,7 +56,6 @@
       text-decoration: none
       float: right
       color: $alternative_link_color
-      color: $subheadline_color
       &:hover
         color: $link_color
 .event
@@ -170,3 +169,23 @@
         width: 36%
       +media($desktop)
         width: 36%
+.editable
+  cursor: pointer
+  &::before
+    content: "clique para editar..."
+    color: $alternative_link_color
+    float: right
+  &.rip-active
+    border: none
+    &::before
+      content: none
+    &::after
+      content: "Clique para salvar"
+      +button($highlight_color)
+.saving
+  font-size: 1.382em
+  padding: 0.2em 0.5em
+  font-weight: $bold_weight
+  background-color: $text_color
+  color: $highlight_color
+  border-radius: 0.3em

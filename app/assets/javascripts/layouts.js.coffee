@@ -1,4 +1,14 @@
 $(document).ready ->
+  $('textarea').autosize()
+  $(".editable").restInPlace()
+  $('.editable').bind 'ready.rest-in-place', ->
+    $('textarea').autosize()
+  $('.editable').bind 'update.rest-in-place', ->
+    $(@).hide()
+    $(@).after('<span class="saving">salvando...</span>')
+  $('.editable').bind 'success.rest-in-place failure.rest-in-place', ->
+    $('.saving').remove()
+    $(@).show()
   $("input.date").pickadate
     format: 'dd/mm/yyyy'
   $("input.time").pickatime

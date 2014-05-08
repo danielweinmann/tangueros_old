@@ -48,6 +48,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    autosize-rails (1.18.6)
+      rails (>= 3.1)
     aws-sdk (1.40.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -152,6 +154,8 @@ GEM
     rake (10.3.1)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    rest_in_place (2.5.0)
+      rails (>= 3.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -197,6 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_decorator
+  autosize-rails
   aws-sdk
   coffee-rails
   devise
@@ -220,6 +225,7 @@ DEPENDENCIES
   rails (~> 4.1.1)
   rails-i18n!
   rails_12factor
+  rest_in_place
   sass-rails
   slim
   slim-rails

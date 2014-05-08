@@ -16,8 +16,6 @@
   em Deixe em branco caso você não queira informar a hora que termina o seu evento
   = text_field_tag :ends_at_date, (l(@event.ends_at.to_date) if @event.ends_at), class: "date", placeholder: "Data de término"
   = text_field_tag :ends_at_time, (l(@event.ends_at, format: :time) if @event.ends_at), class: "time", placeholder: "Hora de término"
-  = form.label :description
-  = form.text_area :description
   = form.label :location
   = form.text_field :location
   = form.label :address

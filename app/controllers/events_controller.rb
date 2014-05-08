@@ -89,8 +89,12 @@ class EventsController < ApplicationController
   end
 
   def set_start_and_end_params!
-    params[:event][:starts_at] = "#{params[:starts_at_date_submit]} #{params[:starts_at_time_submit]}" unless params[:event][:starts_at].present?
-    params[:event][:ends_at] = "#{params[:ends_at_date_submit]} #{params[:ends_at_time_submit]}" unless params[:event][:ends_at].present?
+    if params[:starts_at_date_submit].present? && params[:starts_at_time_submit].present? && !params[:event][:starts_at].present?
+      params[:event][:starts_at] = "#{params[:starts_at_date_submit]} #{params[:starts_at_time_submit]}"
+    end
+    if params[:ends_at_date_submit].present? && params[:ends_at_time_submit].present? && !params[:event][:ends_at].present?
+      params[:event][:ends_at] = "#{params[:ends_at_date_submit]} #{params[:ends_at_time_submit]}"
+    end
   end
 
 end

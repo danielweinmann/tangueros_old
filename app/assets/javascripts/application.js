@@ -8,6 +8,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require gmaps/google
+//= require rest_in_place
+//= require jquery.autosize
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require pickadate/picker.time

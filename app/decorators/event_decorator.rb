@@ -9,8 +9,11 @@ module EventDecorator
     "-#{(ratio / 2.0 * 100) - 38.2}%"
   end
 
-  def display_description
-    self.description.gsub("\n", "<br/>") if self.description
+  def complete_profile?
+    return unless self.image.present?
+    # return unless self.address.present?
+    # return unless self.description.present?
+    true
   end
 
 end
