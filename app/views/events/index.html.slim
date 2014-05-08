@@ -18,6 +18,7 @@
       = link_to "ver mais ￫", happening_events_path, class: "mobile"
       = link_to "ver mais eventos acontecendo agora ￫", happening_events_path, class: "not_mobile"
     div= render @happening
+  hr
 - if @upcoming.exists?
   section.events
     h2
@@ -25,6 +26,7 @@
       = link_to "ver mais ￫", upcoming_events_path, class: "mobile"
       = link_to "ver mais próximos eventos ￫", upcoming_events_path, class: "not_mobile"
     div= render @upcoming
+  hr
 - if @past.exists?
   section.events
     h2

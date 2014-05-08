@@ -11,3 +11,10 @@ body[data-action="index"][data-controller="events"][data-namespace="null"]
     +media($tablet)
       .event:nth-child(3)
         display: none
+    hr
+      +span-columns(6)
+      margin-top: flex-gutter(6)
+      +media($tablet)
+        margin-top: flex-gutter(8)
+      +media($desktop)
+        margin-top: flex-gutter(12)
