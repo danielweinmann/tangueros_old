@@ -66,11 +66,11 @@ class EventsController < ApplicationController
   private
 
   def permitted_params
-    params.permit(event: [:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url])
+    params.permit(event: [:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url, :weekly])
   end
 
   def event_params
-    params.require(:event).permit(:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url)
+    params.require(:event).permit(:name, :event_type_id, :starts_at, :ends_at, :description, :location, :address, :image, :url, :weekly)
   end
 
   def set_start_and_end_params!

@@ -11,15 +11,15 @@
   meta property="og:url" content=(root_url)
   meta property="og:image" content=="#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}"
   meta property="og:description" content="Qualquer pessoa pode adicionar um evento de tango que aconteça em Porto Alegre. Desse jeito, todo mundo fica sabendo das milongas, práticas, shows, aulas, etc, da cidade. E o tango porto-alegrense só cresce!"
-- unless @happening.empty?
+- if @happening.exists?
   section.events
     h2 Acontecendo agora
     div= render @happening
-- unless @upcoming.empty?
+- if @upcoming.exists?
   section.events
     h2 Próximos eventos
     div= render @upcoming
-- unless @past.empty?
+- if @past.exists?
   section.events
     h2 Últimos eventos
     div= render @past

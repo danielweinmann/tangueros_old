@@ -11,9 +11,9 @@
     meta name="keywords" content="#{@event.name} #{@event.description} Tango Porto Alegre"
     meta property="og:title" content=@event.name
     meta property="og:type" content="event"
-    meta property="event:start_time" content=@event.starts_at
-    - if @event.ends_at
-      meta property="event:end_time" content=@event.ends_at
+    meta property="event:start_time" content=@event.next_starts_at
+    - if @event.next_ends_at
+      meta property="event:end_time" content=@event.next_ends_at
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
     meta property="og:url" content=event_url(@event)
@@ -29,19 +29,19 @@ article
       = image_tag "event_types/#{@event.event_type.name.parameterize}.svg", alt: @event.event_type.name, title: @event.event_type.name
       = @event.event_type.name
     .time
-      time.start datetime=@event.starts_at.iso8601
+      time.start datetime=@event.next_starts_at.iso8601
         = image_tag 'calendar.svg'
-        = l @event.starts_at, format: :medium
-      - if @event.ends_at.present?
-        time.end datetime=@event.ends_at.iso8601
+        = l @event.next_starts_at, format: :medium
+      - if @event.next_ends_at.present?
+        time.end datetime=@event.next_ends_at.iso8601
           = "Até "
-          = l @event.ends_at, format: :medium_short
+          = l @event.next_ends_at, format: :medium_short
   .where
     - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
     = image_tag 'location.svg'
     = @event.location
-    = " · #{@event.address}" if @event.address
+    = " · #{@event.address}" if @event.address.present?
   p== @event.display_description
   - if @event.url.present?
     = link_to "Ir para o site do evento", @event.url, target: :_blank, class: "button"

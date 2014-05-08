@@ -17,6 +17,7 @@ pt-BR:
         address: Endereço
         image: Imagem do evento
         url: Site do evento
+        weekly: Este evento acontece toda semana no mesmo horário?
       user:
         name: Nome
         image: Foto do perfil

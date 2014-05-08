@@ -2,6 +2,8 @@
 
 class Event < ActiveRecord::Base
   
+  default_scope { select("*, events.next_starts_at::timestamptz AS next_starts_at, events.next_ends_at::timestamptz AS next_ends_at") }
+
   belongs_to :event_type
   belongs_to :user
 
@@ -18,19 +20,27 @@ class Event < ActiveRecord::Base
   end
 
   def self.happening
-    where("starts_at < current_timestamp AND ends_at > current_timestamp AND ends_at IS NOT NULL").order("starts_at DESC")
+    where("events.next_starts_at < now() AND events.next_ends_at > now() AND events.next_ends_at IS NOT NULL").order("events.next_starts_at DESC")
   end
 
   def self.upcoming
-    where("starts_at >= current_timestamp").order(:starts_at)
+    where("events.next_starts_at >= now()").order(:starts_at)
   end
 
   def self.past
-    where("(ends_at IS NOT NULL AND ends_at < current_timestamp) OR (ends_at IS NULL AND starts_at < current_timestamp)").order("starts_at DESC")
+    where("(events.next_ends_at IS NOT NULL AND events.next_ends_at < now()) OR (events.next_ends_at IS NULL AND events.next_starts_at < now())").order("events.next_starts_at DESC")
   end
   
   def to_param
     "#{self.id}-#{self.permalink.parameterize}"
+  end
+
+  def next_starts_at
+    self.attributes["next_starts_at"].try(:localtime)
+  end
+
+  def next_ends_at
+    self.attributes["next_ends_at"].try(:localtime)
   end
 
   def full_address
