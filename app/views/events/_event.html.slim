@@ -5,7 +5,12 @@ article.event
       h3= truncate event.name, length: 48
       time.start datetime=event.next_starts_at.iso8601
         = image_tag 'calendar.svg'
-        = l event.next_starts_at, format: :medium
+        - if event.weekly?
+          = l(event.next_starts_at, format: :week).pluralize
+          = ", "
+          = l(event.next_starts_at, format: :time)
+        - else
+          = l event.next_starts_at, format: :medium
       .location
         = image_tag 'location.svg'
         span= event.location

@@ -16,7 +16,7 @@ pt-BR:
         location: Local
         address: Endereço
         image: Imagem do evento
-        url: Site do evento
+        url: Site com mais informações
         weekly: Este evento acontece toda semana no mesmo horário?
       user:
         name: Nome
@@ -30,3 +30,4 @@ pt-BR:
       medium: ! '%a, %-d/%-m, %k:%M'
       medium_short: ! '%-d/%-m, %k:%M'
       time: ! '%H:%M'
+      week: ! '%A'

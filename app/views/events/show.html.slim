@@ -31,11 +31,20 @@ article
     .time
       time.start datetime=@event.next_starts_at.iso8601
         = image_tag 'calendar.svg'
-        = l @event.next_starts_at, format: :medium
+        - if @event.weekly?
+          = l(@event.next_starts_at, format: :week).pluralize
+          = ", "
+          = l(@event.next_starts_at, format: :time)
+        - else
+          = l @event.next_starts_at, format: :medium
       - if @event.next_ends_at.present?
         time.end datetime=@event.next_ends_at.iso8601
-          = "Até "
-          = l @event.next_ends_at, format: :medium_short
+          - if @event.next_ends_at.to_date > @event.next_starts_at.to_date
+            = "Até "
+            = l @event.next_ends_at, format: :medium_short
+          - else
+            = "Até às "
+            = l @event.next_ends_at, format: :time
   .where
     - if @event.latitude && @event.longitude
       #map data-latitude=@event.latitude data-longitude=@event.longitude
@@ -44,7 +53,7 @@ article
     = " · #{@event.address}" if @event.address.present?
   p== @event.display_description
   - if @event.url.present?
-    = link_to "Ir para o site do evento", @event.url, target: :_blank, class: "button"
+    = link_to "Ir para site com mais informações", @event.url, target: :_blank, class: "button"
   - if policy(@event).update?
     = link_to 'Editar evento', edit_event_path(@event), class: "button"
   - if policy(@event).destroy?
