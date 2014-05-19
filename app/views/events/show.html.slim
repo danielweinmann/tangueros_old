@@ -17,7 +17,7 @@
     meta property="event:location:latitude" content=@event.latitude
     meta property="event:location:longitude" content=@event.longitude
     meta property="og:url" content=event_url(@event)
-    meta property="og:image" content=(@event.image.present? ? @event.image.url : "#{request.protocol}#{request.host_with_port}#{image_path("tango.png")}")
+    meta property="og:image" content=(@event.image.present? ? @event.image.url : "#{request.protocol}#{request.host_with_port}#{image_path("tango_facebook.png")}")
     meta property="og:description" content=@event.description
 article id=dom_id(@event)
   header
